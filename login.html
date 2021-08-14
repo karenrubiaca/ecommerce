@@ -32,22 +32,27 @@
       width: 100%;
       max-width: 330px;
       padding: 15px;
-      margin: auto;
-    }
+      margin: auto; }
+
+    div#log { size: cover;
+    width:100%;
+    height:100%}
+   
   </style>
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
+  <div class="container p-5" id="log">
+  <img src="img/login.png" alt="login" id="login">
+  <form action="categories.html">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">Por favor, registrese</h4>
       <p><input type="text" name="correo" id="txtcorreo" placeholder="Dirección de correo electrónico" size="27"/></p>
       <p><input type="text" name="clave" id="txtclave" placeholder="Clave" size="27"/></p>
       <input type="button" value="Guardar" id="btnSave" />
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
+  </form>
   </div>
 
   <script src="js/init.js"></script>
