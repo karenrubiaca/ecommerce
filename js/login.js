@@ -4,7 +4,6 @@ const login = () => {
   const name = document.getElementById("txtcorreo").value;
   const pass = document.getElementById("txtclave").value;
   if (name && pass) {
-    tbody.innerHTML += `<tr><td>${name}</td><td>${pass}</td></tr>`;
     //limpiar el texto para que luego se puedan escribir mas
     // y que no quede registro de lo anterior.
     document.getElementById("txtcorreo").value = "";
