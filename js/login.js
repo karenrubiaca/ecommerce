@@ -1,19 +1,17 @@
+function respaldoUsuario(correo, clave){  
 
-const array = [];
-const login = () => {
-  const name = document.getElementById("txtcorreo").value;
-  const pass = document.getElementById("txtclave").value;
-  if (name && pass) {
-    //limpiar el texto para que luego se puedan escribir mas
-    // y que no quede registro de lo anterior.
-    document.getElementById("txtcorreo").value = "";
-    document.getElementById("txtclave").value = "";
-    array.push({name: correo,name: clave});
-    window.location="index.html";
-  } else {
-    alert("Correo y Clave no deben ser vacíos");
-  }
-};
+  if (correo.trim()==="" || clave.trim()===""){ //el dato recibido no debe ser vacío. 
+//ni ser espacios en blanco.
+}    else{
+localStorage.setItem("usuario", correo.trim()); //setItem almacena el dato en la posición "usuario"
+localStorage.setItem("password", clave.trim()); // Almaceno la contraseña
+sessionStorage.setItem("usuario", correo.trim());
+window.location="index.html";
+//getItem obtiene el dato almacenado en la posición "usuario"
+
+}
+}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

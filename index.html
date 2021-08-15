@@ -15,7 +15,12 @@
   </head>
   <body>
     
-    <script>location.href="login.html" </script>
+    <script>
+      //si no tengo guardado un usuario, entonces mando al login
+      if (!sessionStorage.getItem("usuario"))
+      location.href="login.html";
+    </script>
+
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
