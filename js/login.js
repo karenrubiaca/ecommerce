@@ -3,22 +3,21 @@ function respaldoUsuario(correo, clave){
   if (correo.trim()==="" || clave.trim()===""){ //el dato recibido no debe ser vacío. 
 //ni ser espacios en blanco.
 }    else{
-localStorage.clear();
 localStorage.setItem("usuario", correo.trim()); //setItem almacena el dato en la posición "usuario"
 localStorage.setItem("password", clave.trim()); // Almaceno la contraseña
 sessionStorage.setItem("usuario", correo.trim());
+document.getElementById("txtcorreo").value = "";
+  document.getElementById("txtclave").value = "";
 window.location="index.html";
 //getItem obtiene el dato almacenado en la posición "usuario"
 
 }
 }
 
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("btnSave").addEventListener("click", buttonSave);
+document.addEventListener("DOMContentLoaded", function(e){    
     
 });
