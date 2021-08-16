@@ -3,6 +3,7 @@ function respaldoUsuario(correo, clave){
   if (correo.trim()==="" || clave.trim()===""){ //el dato recibido no debe ser vacío. 
 //ni ser espacios en blanco.
 }    else{
+localStorage.clear();
 localStorage.setItem("usuario", correo.trim()); //setItem almacena el dato en la posición "usuario"
 localStorage.setItem("password", clave.trim()); // Almaceno la contraseña
 sessionStorage.setItem("usuario", correo.trim());
