@@ -1,28 +1,49 @@
-const array = [];
-const showList = (productos) => {
-    const list = document.createElement("ul"); // Contenedor de toda la lista
-    // Se recorre el array de propietarios
-    for (let prod of productos) {
-      const li = document.createElement("li"); // Item de lista por cada productos
-      li.appendChild(document.createTextNode(`${prod.name} ${prod.description} ${prod.cost} `));
-      list.appendChild(li); // Se añade el item de propietario a la lista general
-      array.push(prod.name, prod.description, prod.cost);
+var products = [];
+
+function showProductsList(){
+
+        let htmlContentToAppend = "";
+        for(let i = 0; i < products.length; i++){
+            let product = products[i];
+    
+    
+                htmlContentToAppend += `
+                <a href="product-info.html" class="list-group-item list-group-item-action">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">`+ product.name +`</h4>
+                                <small class="text-muted">` + product.soldCount + ` artículos</small>
+                            </div>
+                            <p class="mb-1">` + "Descripción:" +" "+ product.description + `</p>
+                            <p class="mb-1">` + "Costo:"+" "+ product.cost + `</p>
+                            <p class="mb-1">` + "Moneda:" +" "+ product.currency + `</p>
+                        </div>
+                    </div>
+                </a>
+                `
+// ' + ' puede cambiarse por ${} 
     }
-    document.body.appendChild(list); // Se muestra en pantalla la lista total
-  };
-
-
-
+   
+    document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
   
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-      //primero limpio el storage
- // localStorage.clear();
-  //agrego los datos del arreglo como string
-  localStorage.setItem('productos', JSON.stringify(array));
-   // const products = (await getJSONData(localStorage.getItem("datos")));
-    showList(JSON.parse(localStorage.getItem("productos")));
-   // showList(products);
+   showSpinner();
+   getJSONData(PRODUCTS_URL).then(function(resultObj){
+       if (resultObj.status === "ok")
+       {
+           products = resultObj.data;
+           //Muestro los productos
+           showProductsList(products);
+       }
+       hideSpinner();
+   });
 });
