@@ -5,6 +5,7 @@ function showProductsList(){
         let htmlContentToAppend = "";
         for(let i = 0; i < products.length; i++){
             let product = products[i];
+
     
                 htmlContentToAppend += `
                 <a href="product-info.html" class="list-group-item list-group-item-action">
