@@ -17,7 +17,7 @@
     
     <script>
       //si no tengo guardado un usuario, entonces mando al login
-      if (!sessionStorage.getItem("usuario"))
+      if (!sessionStorage.getItem("usuario")&&!sessionStorage.getItem("password"))
       location.href="login.html";
     </script>
 
