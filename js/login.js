@@ -20,7 +20,5 @@ window.location="index.html";
 
 document.addEventListener("DOMContentLoaded", function(e){  
   if (localStorage.getItem("usuario"))
-  let us=document.getElementById("user");
-  us.innerHTML="";
-  us+= localStorage.getItem("usuario").value;
+  document.getElementById("nameUsuario").innerHTML=localStorage.getItem("usuario").value;
 });
