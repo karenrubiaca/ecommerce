@@ -5,7 +5,6 @@ function respaldoUsuario(correo, clave){
 }    
 else{
 sessionStorage.setItem("usuario", correo.trim());//setItem almacena el dato en la posición "usuario"
-sessionStorage.setItem("password", clave.trim());// Almaceno la contraseña
 document.getElementById("txtcorreo").value = "";
   document.getElementById("txtclave").value = "";
 window.location="index.html";
