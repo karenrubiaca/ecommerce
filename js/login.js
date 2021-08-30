@@ -6,7 +6,8 @@ function respaldoUsuario(correo, clave){
 else{
 sessionStorage.setItem("usuario", correo.trim());//setItem almacena el dato en la posición "usuario"
 document.getElementById("txtcorreo").value = "";
-  document.getElementById("txtclave").value = "";
+document.getElementById("txtclave").value = "";
+localStorage.setItem("usuario", correo.trim());
 window.location="index.html";
 //getItem obtiene el dato almacenado en la posición "usuario"
 
@@ -17,6 +18,9 @@ window.location="index.html";
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-document.addEventListener("DOMContentLoaded", function(e){    
-    
+document.addEventListener("DOMContentLoaded", function(e){  
+  if (localStorage.getItem("usuario"))
+  let us=document.getElementById("user");
+  us.innerHTML="";
+  us+= localStorage.getItem("usuario").value;
 });
