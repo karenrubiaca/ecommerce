@@ -29,55 +29,10 @@ function sortAndShowProducts(criteria, array){
         });
     }
 
-    showProductsList();
+    showProductsList(products);
 }
 
-function sortAndShowProductsRange(criteria, array,min,max){
-     
-      if (criteria === ORDER_PROD_RANGE){
-        array.sort(function(a)  {
-            if ( (a[cost] <= max)&&(a[cost] >= min) ){ return -1; }
-           
-            return 0;
-        });
-     }
-    
-
-    showProductsList();
-}
-
-/*
-function sortProducts(criteria, array){
-    let result = [];
-    if (criteria === ORDER_ASC_BY_COST)
-    {
-        result = array.sort(function(a, b) {
-            if ( a.name < b.name ){ return -1; }
-            if ( a.name > b.name ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_DES_BY_COST){
-        result = array.sort(function(a, b) {
-            if ( a.name > b.name ){ return -1; }
-            if ( a.name < b.name ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_DES_PROD_SOLDCOUNT){
-        result = 
-        array.sort(function(a, b) {
-            let aCount = parseInt(a.productCount);
-            let bCount = parseInt(b.productCount);
-
-            if ( aCount > bCount ){ return -1; }
-            if ( aCount < bCount ){ return 1; }
-            return 0;
-        });
-    }
-
-    return result;
-}
-*/
-function showProductsList(){
+function showProductsList(products){
 
         let htmlContentToAppend = "";
         for(let i = 0; i < products.length; i++){
@@ -108,29 +63,6 @@ function showProductsList(){
   
 }
 
-//const estaEnRango=(valor,valorInicio,valorFinal)=>{
-    //return ((valor>=valorInicio)&&(valor<=valorFinal));
-//}
-function filtradoRango(){
-    minCount=document.getElementById("rangeFilterCountMinProd").value;
-    maxCount=document.getElementById("rangeFilterCountMaxProd").value;
-    criteria=ORDER_PROD_RANGE;
-    sortAndShowProductsRange(criteria, products,minCount,maxCount)
-   
-           // document.getElementById("prod-list-container").innerHTML=prodRang;
-
-}
-function limpiarRango(){
-
-    document.getElementById("clearRangeFilterProd").addEventListener("click", function(){
-        document.getElementById("rangeFilterCountMin").value = "";
-        document.getElementById("rangeFilterCountMax").value = "";
-        minCount=0;
-        maxCount=0;
-        showCategoriesList();
-    });
-}
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -141,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
        {
            products = resultObj.data;
            //Muestro los productos
-           showProductsList();
+           showProductsList(products);
        }
        hideSpinner();
    });
@@ -149,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
        criteria=ORDER_ASC_BY_COST;
     sortAndShowProducts(criteria, products);
 });
-
+});
 document.getElementById("sortProdDesc").addEventListener("click", function(){
     criteria=ORDER_DES_BY_COST;
     sortAndShowProducts(criteria, products);
@@ -160,9 +92,27 @@ document.getElementById("sortByProdCount").addEventListener("click", function(){
     sortAndShowProducts(criteria, products);
 });
 
-
+document.getElementById("clearRangeFilterProd").addEventListener("click", function(){
+    document.getElementById("rangeFilterCountMinProd").value = "";
+    document.getElementById("rangeFilterCountMaxProd").value = "";
+    minCount=0;
+    maxCount=0;
+    showProductsList(products);
 });
-     
+
+document.getElementById("rangeFilterCountProd").addEventListener("click", function(){
+    minCount=document.getElementById("rangeFilterCountMinProd").value;
+    maxCount=document.getElementById("rangeFilterCountMaxProd").value;
+    let prodEnRango = [];
+        for(let i = 0; i < products.length; i++){
+            if ((products[i].cost>=minCount)&&(products[i].cost<=maxCount))
+            prodEnRango.innerHTML+=products[i];
+        }
+   
+    
+    showProductsList(prodEnRango);
+});
+
 
 
 // id="rangeFilterCountMinProd">
