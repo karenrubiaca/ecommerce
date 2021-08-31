@@ -139,3 +139,7 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+p#nameUsuariosell, p#nameUsuariocat, p#nameUsuariocart, p#nameUsuario, p#nameUsuarioprod{
+  color: chartreuse;
+}

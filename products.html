@@ -21,6 +21,7 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <p class="py-2 d-none d-md-inline-block" href="#" id="nameUsuarioprod">  </p>
       </div>
     </nav>
 
@@ -71,8 +72,8 @@
                   </div>
                   <div class="col-3 p-0">
                     <div class="btn-group" role="group">
-                      <button onclick="filtradoRango()" class="btn btn-link btn-sm" id="rangeFilterCount">Filtrar</button>
-                      <button onclick="limpiarRango()" class="btn btn-link btn-sm" id="clearRangeFilterProd">Limpiar</button>
+                      <button onclick="filtradoRango();" class="btn btn-link btn-sm" id="rangeFilterCount">Filtrar</button>
+                      <button onclick="limpiarRango();" class="btn btn-link btn-sm" id="clearRangeFilterProd">Limpiar</button>
                     </div>
                   </div>
                 </div>
@@ -105,5 +106,8 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
+    <script>  if (sessionStorage.getItem("usuario")){
+      let carge=document.getElementById("nameUsuarioprod")
+      carge.innerHTML=localStorage.getItem("usuario");}</script>
   </body>
 </html>

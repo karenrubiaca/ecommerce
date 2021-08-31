@@ -19,6 +19,5 @@ window.location="index.html";
 //elementos HTML presentes.
 
 document.addEventListener("DOMContentLoaded", function(e){  
-  if (localStorage.getItem("usuario"))
-  document.getElementById("nameUsuario").innerHTML=localStorage.getItem("usuario").value;
+  
 });
