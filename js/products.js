@@ -77,45 +77,42 @@ document.addEventListener("DOMContentLoaded", function (e) {
        }
        hideSpinner();
    });
-   document.getElementById("sortProdAsc").addEventListener("click", function(){
+ document.getElementById("sortProdAsc").addEventListener("click", function(){
        criteria=ORDER_ASC_BY_COST;
     sortAndShowProducts(criteria, products);
-});
-});
-document.getElementById("sortProdDesc").addEventListener("click", function(){
+    });
+ document.getElementById("sortProdDesc").addEventListener("click", function(){
     criteria=ORDER_DES_BY_COST;
     sortAndShowProducts(criteria, products);
-});
+    });
 
-document.getElementById("sortByProdCount").addEventListener("click", function(){
+ document.getElementById("sortByProdCount").addEventListener("click", function(){
     criteria=ORDER_DES_PROD_SOLDCOUNT;
     sortAndShowProducts(criteria, products);
-});
+    });
 
-document.getElementById("clearRangeFilterProd").addEventListener("click", function(){
+ document.getElementById("clearRangeFilterProd").addEventListener("click", function(){
     document.getElementById("rangeFilterCountMinProd").value = "";
     document.getElementById("rangeFilterCountMaxProd").value = "";
     minCount=0;
     maxCount=0;
     showProductsList(products);
-});
+    });
 
-document.getElementById("rangeFilterCountProd").addEventListener("click", function(){
+ document.getElementById("rangeFilterCountProd").addEventListener("click", function(){
     minCount=document.getElementById("rangeFilterCountMinProd").value;
     maxCount=document.getElementById("rangeFilterCountMaxProd").value;
     let prodEnRango = [];
         for(let i = 0; i < products.length; i++){
+           if ((minCount>0)&&(maxCount>0))
             if ((products[i].cost>=minCount)&&(products[i].cost<=maxCount))
             prodEnRango.innerHTML+=products[i];
         }
    
     
     showProductsList(prodEnRango);
+    minCount=0;
+    maxCount=0;
+    });
+
 });
-
-
-
-// id="rangeFilterCountMinProd">
-         // id="rangeFilterCountMaxProd">
-           
-
