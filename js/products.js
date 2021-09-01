@@ -1,7 +1,7 @@
 var products = [];
 var camp="cost";
-CountMin=0;
-CountMax=0;
+CountMin=undefined;
+CountMax=undefined;
 const ORDER_ASC_BY_COST = "PrecioAsc.";
 const ORDER_DES_BY_COST = "PrecioDes.";
 const ORDER_DES_PROD_SOLDCOUNT = "Relevancia";
@@ -29,16 +29,18 @@ function sortAndShowProducts(criteria, array){
         });
     }
 
-    showProductsList(products);
+    showProductsList();
 }
 
-function showProductsList(products){
+function showProductsList(){
 
         let htmlContentToAppend = "";
         for(let i = 0; i < products.length; i++){
             let product = products[i];
+        
+            if ((( CountMin == undefined) || ( CountMin != undefined && parseInt(product.cost) >=  CountMin)) &&
+            ((CountMax == undefined) || (CountMax != undefined && parseInt(product.cost) <= CountMax))){
 
-    
                 htmlContentToAppend += `
                 <a href="product-info.html" class="list-group-item list-group-item-action">
                     <div class="row">
@@ -57,7 +59,7 @@ function showProductsList(products){
                 </a>
                 `
 // ' + ' puede cambiarse por ${} 
-    }
+    }}
    
     document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
   
@@ -73,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
        {
            products = resultObj.data;
            //Muestro los productos
-           showProductsList(products);
+           showProductsList();
        }
        hideSpinner();
    });
@@ -94,25 +96,40 @@ document.addEventListener("DOMContentLoaded", function (e) {
  document.getElementById("clearRangeFilterProd").addEventListener("click", function(){
     document.getElementById("rangeFilterCountMinProd").value = "";
     document.getElementById("rangeFilterCountMaxProd").value = "";
-    minCount=0;
-    maxCount=0;
-    showProductsList(products);
+    CountMin=undefined;
+    CountMax=undefined;
+    showProductsList();
     });
 
  document.getElementById("rangeFilterCountProd").addEventListener("click", function(){
-    minCount=document.getElementById("rangeFilterCountMinProd").value;
-    maxCount=document.getElementById("rangeFilterCountMaxProd").value;
-    let prodEnRango = [];
+    CountMin=document.getElementById("rangeFilterCountMinProd").value;
+    CountMax=document.getElementById("rangeFilterCountMaxProd").value;
+ /*
+        if ((CountMin!==undefined)&&(CountMax!==undefined)){
         for(let i = 0; i < products.length; i++){
-           if ((minCount>0)&&(maxCount>0))
-            if ((products[i].cost>=minCount)&&(products[i].cost<=maxCount))
-            prodEnRango.innerHTML+=products[i];
+            if ((products[i].cost>=CountMin)&&(products[i].cost<=CountMax))
+            prodEnRango+=products[i];
         }
+        }
+*/
+    //
+    //CountMin=undefined;
+    //CountMax=undefined;
    
-    
-    showProductsList(prodEnRango);
-    minCount=0;
-    maxCount=0;
-    });
+    if ((CountMin != undefined) && (CountMin != "") && (parseInt(CountMin)) >= 0){
+        CountMin = parseInt(CountMin);
+    }
+    else{
+        CountMin = undefined;
+    }
+
+    if ((CountMax != undefined) && (CountMax != "") && (parseInt(CountMax)) >= 0){
+        CountMax = parseInt(CountMax);
+    }
+    else{
+        CountMax = undefined;
+    }
+showProductsList();
+});
 
 });
