@@ -5,7 +5,6 @@ CountMax=undefined;
 const ORDER_ASC_BY_COST = "PrecioAsc.";
 const ORDER_DES_BY_COST = "PrecioDes.";
 const ORDER_DES_PROD_SOLDCOUNT = "Relevancia";
-const ORDER_PROD_RANGE= "rangeFilterCount";
 let criteria="ORDER_ASC_BY_COST";
 function sortAndShowProducts(criteria, array){
     if (criteria === ORDER_ASC_BY_COST) //ascendente por precio
@@ -104,17 +103,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
  document.getElementById("rangeFilterCountProd").addEventListener("click", function(){
     CountMin=document.getElementById("rangeFilterCountMinProd").value;
     CountMax=document.getElementById("rangeFilterCountMaxProd").value;
- /*
-        if ((CountMin!==undefined)&&(CountMax!==undefined)){
-        for(let i = 0; i < products.length; i++){
-            if ((products[i].cost>=CountMin)&&(products[i].cost<=CountMax))
-            prodEnRango+=products[i];
-        }
-        }
-*/
-    //
-    //CountMin=undefined;
-    //CountMax=undefined;
    
     if ((CountMin != undefined) && (CountMin != "") && (parseInt(CountMin)) >= 0){
         CountMin = parseInt(CountMin);
