@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
  document.getElementById("rangeFilterCountProd").addEventListener("click", function(){
     CountMin=document.getElementById("rangeFilterCountMinProd").value;
     CountMax=document.getElementById("rangeFilterCountMaxProd").value;
-   
+
     if ((CountMin != undefined) && (CountMin != "") && (parseInt(CountMin)) >= 0){
         CountMin = parseInt(CountMin);
     }
