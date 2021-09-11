@@ -27,18 +27,57 @@
   </nav>
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
+      
+      <h2>Descripción del producto</h2>
+      </div>
+      <h3 ></h3>
+      <dl>
+        <dt>Puntuación</dt>
+        <dd>
+          <p id="productScore"></p>
+        </dd>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Usuario</dt>
+        <dd>
+          <p id="productUser"></p>
+        </dd>
+
+        <dt>Fecha y Hora</dt>
+        <dd>
+          <p id="productDateTime"></p>
+        </dd>
+
+      <form action="">
+        <label for="puntuacion">Puntuación</label>
+        <select class="form-control" id="puntuacion">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <h4 class="alert-heading">Comentario</h4>
+      <p id=comment></p>
+      <p><textarea name="comentario" id="txtcomentario"  placeholder="Ingrese su comentario.." cols="60" rows="3" ></textarea>
+      </p>
+      <button onclick="respaldoComentario(txtcomentario.value,puntuacion.value);" class="btn btn-success">Registrar</button>
+      </form>
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      <p id=comentariosanteriores></p>
     </div>
   </div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2021</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
