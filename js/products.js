@@ -28,10 +28,10 @@ function sortAndShowProducts(criteria, array){
         });
     }
 
-    showProductsList();
+    showProductsList(array);
 }
 
-function showProductsList(){
+function showProductsList(products){
 
         let htmlContentToAppend = "";
         for(let i = 0; i < products.length; i++){
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
        {
            products = resultObj.data;
            //Muestro los productos
-           showProductsList();
+           showProductsList(products);
        }
        hideSpinner();
    });
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("rangeFilterCountMaxProd").value = "";
     CountMin=undefined;
     CountMax=undefined;
-    showProductsList();
+    showProductsList(products);
     });
 
  document.getElementById("rangeFilterCountProd").addEventListener("click", function(){
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     else{
         CountMax = undefined;
     }
-showProductsList();
+showProductsList(products);
 });
 
 });

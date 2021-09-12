@@ -25,30 +25,71 @@
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
     </div>
   </nav>
+
+
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      
-      <h2>Descripción del producto</h2>
+      <div class="container mt-5">
+        <div class="text-center p-4">
+          <h2>Descripción del producto</h2>
+          <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+        </div>
+        <h3 id="productName"></h3>
+        <hr class="my-3">
+        <dl>
+          <dt>Descripción</dt>
+          <dd>
+            <p id="productDescription"></p>
+          </dd>
+          <dt>Costo del producto</dt>
+          <dd>
+            <p id="productCost"></p>
+          </dd>
+          <dt>Moneda</dt>
+          <dd>
+            <p id="productCurrency"></p>
+          </dd>  
+          <dt>Cantidad de productos vendidos</dt>
+          <dd>
+            <p id="productSoldCount"></p>
+          </dd>
+          <dt>Categoría</dt>
+          <dd>
+            <p id="productCategoria"></p>
+          </dd>
+          <dt>Imágenes ilustrativas</dt>
+          <dd>
+            <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+            </div>
+          </dd>
+          <dd>
+            <dt>Productos Relacionados</dt>
+            <div class="row text-center text-lg-left pt-2" id="productRelacionados">
+            </div>
+          </dd>
+        </dl>
+      </div>
+
+
+      <h2>Comentarios</h2>
       </div>
       <h3 ></h3>
       <dl>
         <dt>Puntuación</dt>
         <dd>
-          <p id="productScore"></p>
+          <p id="productCommentScore"></p>
         </dd>
         <dt>Descripción</dt>
         <dd>
-          <p id="productDescription"></p>
+          <p id="productCommentDescription"></p>
         </dd>
-
         <dt>Usuario</dt>
         <dd>
-          <p id="productUser"></p>
+          <p id="productCommentUser"></p>
         </dd>
-
         <dt>Fecha y Hora</dt>
         <dd>
-          <p id="productDateTime"></p>
+          <p id="productCommentDateTime"></p>
         </dd>
 
       <form action="">
@@ -65,7 +106,7 @@
       <p id=comment></p>
       <p><textarea name="comentario" id="txtcomentario"  placeholder="Ingrese su comentario.." cols="60" rows="3" ></textarea>
       </p>
-      <button onclick="respaldoComentario(txtcomentario.value,puntuacion.value);" class="btn btn-success">Registrar</button>
+      <button class="btn btn-success">Registrar</button>
       </form>
       <hr>
       <p id=comentariosanteriores></p>

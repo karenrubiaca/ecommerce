@@ -1,9 +1,10 @@
-function respaldoComentario(comment,puntuacion.value){  
+/*function respaldoComentario(comment,puntuacion){  
 
-    if (correo.trim()==="" || clave.trim()===""){ //el dato recibido no debe ser vacío. 
+    if (comment.trim()==="" || puntuacion.trim()===""){ //el dato recibido no debe ser vacío. 
   //ni ser espacios en blanco.
   }    
   else{
+
   sessionStorage.setItem("comentario", comment.trim());//setItem almacena el dato en la posición "usuario"
   let commenta=sessionStorage.getItem("comentario");
   let comentarioanterior=document.getElementById("comentariosanteriores");
@@ -13,8 +14,38 @@ function respaldoComentario(comment,puntuacion.value){
   
   }
   }
-
+*/
   var product = {};
+/*
+  function showProductsList(products){
+
+    let htmlContentToAppend = "";
+    for(let i = 0; i < products.length; i++){
+        let product = products[i];
+
+            htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ product.name +`</h4>
+                            <small class="text-muted">` + product.soldCount + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` +" "+ product.description + `</p>
+                        <p class="mb-1">` + "Costo:"+" "+product.currency+" "+ product.cost + `</p>
+                    </div>
+                </div>
+            </a>
+            `
+// ' + ' puede cambiarse por ${} 
+}
+
+document.getElementById("productRelacionados").innerHTML = htmlContentToAppend;
+
+}*/
 
   function showImagesGallery(array){
   
@@ -46,33 +77,39 @@ document.addEventListener("DOMContentLoaded", function(e){
 
       let productNameHTML  = document.getElementById("productName");
       let productDescriptionHTML = document.getElementById("productDescription");
-      let productCountHTML = document.getElementById("productCount");
-      let productCriteriaHTML = document.getElementById("productCriteria");
-  
+      let productCostHTML = document.getElementById("productCost");
+      let productCurrencyHTML = document.getElementById("productCurrency");
+      let productSoldCountHTML = document.getElementById("productSoldCount");
+      let productCategoriaHTML = document.getElementById("productCategoria");
+      let productRelacionadosHTML=document.getElementById("productRelacionados");
+
       productNameHTML.innerHTML = product.name;
       productDescriptionHTML.innerHTML = product.description;
-      productCountHTML.innerHTML = product.productCount;
-      productCriteriaHTML.innerHTML = product.productCriteria;
+      productCostHTML.innerHTML = product.cost;
+      productCurrencyHTML.innerHTML = product.currency;
+      productSoldCountHTML.innerHTML = product.soldCount
+      productCategoriaHTML.innerHTML = product.category;
 
       //Muestro las imagenes en forma de galería
       showImagesGallery(product.images);
+      productRelacionadosHTML.innerHTML = product.relatedProducts;
   }
 });
 
 getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
   if (resultObj.status === "ok")
   {
-    product = resultObj.data;
+    productComment = resultObj.data;
 
-    let productScoreHTML  = document.getElementById("productScore");
-    let productDescriptionHTML = document.getElementById("productDescription");
-    let productUserHTML = document.getElementById("productUser");
-    let productDateTimeHTML = document.getElementById("productDateTime");
+    let productCommentScoreHTML  = document.getElementById("productCommentScore");
+    let productCommentDescriptionHTML = document.getElementById("productCommentDescription");
+    let productCommentUserHTML = document.getElementById("productCommentUser");
+    let productCommentDateTimeHTML = document.getElementById("productCommentDateTime");
 
-    productScoreHTML.innerHTML = product.score;
-    productDescriptionHTML.innerHTML = product.description;
-    productUserHTML.innerHTML = product.user;
-    productDateTimeHTML.innerHTML = product.dateTime;
+    productCommentScoreHTML.innerHTML = productComments.score;
+    productCommentDescriptionHTML.innerHTML = productComments.description;
+    productCommentUserHTML.innerHTML = productComments.user;
+    productCommentDateTimeHTML.innerHTML = productComments.dateTime;
 
 }
 });
