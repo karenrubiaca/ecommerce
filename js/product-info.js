@@ -45,28 +45,30 @@ document.addEventListener("DOMContentLoaded", function(e){
       //Muestro las imagenes en forma de galería
       showImagesGallery(product.images);
   }
+  });
 
-});
-document.getElementById("comment").addEventListener("click", function(){
-    let productCommentPuntuacionHTML  = document.getElementById("txtcomentario");
-    productCommentPuntuacionHTML.innerHTML += comment;
-    productCommentPuntuacionHTML.innerHTML += "Puntuación"+puntuacion;
-});
+ document.getElementById("Registro").addEventListener("click", function(){
+    let productCommentPuntuacionHTML  = document.getElementById("productComments");
+    let commentNewHTML=document.getElementById("txtcomentario");
+    let puntuacionNewHTML=document.getElementById("puntuacion");
+    productCommentPuntuacionHTML.innerHTML += commentNewHTML;
+    productCommentPuntuacionHTML.innerHTML += "Puntuación"+puntuacionNewHTML;
+  });
 
-
-getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+ getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
   if (resultObj.status === "ok")
   {
     productComments = resultObj.data;
+    let productCommentHTML  = document.getElementById("productComments");
+    let htmlContentToAppend = "";
+    for(let i = 0; i < productComments.length; i++){
+        let product = productComments[i];
 
-    let productCommentHTML  = document.getElementById("comentariosanteriores");
-    productCommentHTML = "";
-    productCommentHTML.innerHTML += productComments.score;
-    productCommentHTML.innerHTML += productComments.description;
-    productCommentHTML.innerHTML += productComments.user;
-    productCommentHTML.innerHTML += productComments.dateTime;
+    productCommentHTML.innerHTML += "Usuario:" +product.user+ "<br>";
+    productCommentHTML.innerHTML += "Puntuación:"+product.score+ "<br>";
+    productCommentHTML.innerHTML += "Descripción:"+product.description+ "<br>";
+    productCommentHTML.innerHTML += "Fecha:"+product.dateTime+ "<br>"+ "<br>"; }
+  }
 
-}
-
-});
+ });
 });
