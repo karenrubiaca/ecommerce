@@ -63,11 +63,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     let htmlContentToAppend = "";
     for(let i = 0; i < productComments.length; i++){
         let product = productComments[i];
-
-    productCommentHTML.innerHTML += "Usuario:" +product.user+ "<br>";
     productCommentHTML.innerHTML += "Puntuación:"+product.score+ "<br>";
-    productCommentHTML.innerHTML += "Descripción:"+product.description+ "<br>";
-    productCommentHTML.innerHTML += "Fecha:"+product.dateTime+ "<br>"+ "<br>"; }
+    productCommentHTML.innerHTML += product.user+ "<br>";
+    productCommentHTML.innerHTML += product.description+ " ";
+    productCommentHTML.innerHTML += product.dateTime+ "<br>"+ "<br>"; }
   }
 
  });
