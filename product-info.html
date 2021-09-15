@@ -28,48 +28,65 @@
 
 
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
+    <div class="alert alert-info" role="alert" style="position: relative; width:auto; top: 0;">
       <div class="container mt-5">
-        <div class="text-center p-4">
-          <h2>Descripción del producto</h2>
-          <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+        <div class="text-center p-4">         
+          <h2 class="text-info" >Descripción del producto</h2>
+          <p class="text-danger" class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
         </div>
-        <h3 id="productName"></h3>
+        <h3 class="text-success" id="productName"></h3>
         <hr class="my-3">
         <dl>
-          <dt>Descripción</dt>
+          <dt class="p-3 mb-2 bg-info text-white">Descripción</dt>
           <dd>
-            <p id="productDescription"></p>
+            <p class="text-success" id="productDescription"></p>
           </dd>
-          <dt>Costo del producto</dt>
+          <div class="row">
+            <div class="col-4">  
+
+
+          <dt class="p-3 mb-2 bg-info text-white">Costo del producto</dt>
           <dd>
-            <p id="productCost"></p>
+            <p class="text-success" id="productCost"></p>
+          </dd></div>
+
+            <div class="col-4"> 
+          <dt class="p-3 mb-2 bg-info text-white">Moneda</dt>
+          <dd>
+            <p class="text-success" id="productCurrency"></p>
+          </dd> </div> 
+
+            <div class="col-4"> 
+          <dt class="p-3 mb-2 bg-info text-white">Cantidad de productos vendidos</dt>
+          <dd>
+            <p class="text-success" id="productSoldCount"></p>
+        </div>
+      </dd>
+
+            <div class="col-4"> 
+          <dt class="p-3 mb-2 bg-info text-white">Categoría</dt>
+          <dd>
+            <p class="text-success" id="productCategoria"></p>
           </dd>
-          <dt>Moneda</dt>
-          <dd>
-            <p id="productCurrency"></p>
-          </dd>  
-          <dt>Cantidad de productos vendidos</dt>
-          <dd>
-            <p id="productSoldCount"></p>
-          </dd>
-          <dt>Categoría</dt>
-          <dd>
-            <p id="productCategoria"></p>
-          </dd>
-          <dt>Imágenes ilustrativas</dt>
+        </div>
+      </div>
+
+          <dt class="p-3 mb-2 bg-info text-white">Imágenes ilustrativas</dt>
           <dd>
             <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
             </div>
           </dd>
-          <dt>Comentarios</dt> 
+          <dt class="p-3 mb-2 bg-info text-white">Comentarios</dt> 
           <dd>
-            <div class="row text-center text-lg-left pt-2" id="productComments">
+            <div class="text-success" class="row text-center text-lg-left pt-2" id="productComments">
             </div>
           </dd>
         </dl>
       </div>
       </div>
+      <div class="container p-5">
+        <div class="alert alert-success" role="alert" style="position: relative; width:auto; top: 0;">
+          
       <h4 class="alert-heading">Realizar Comentario</h4>
       <form action="">
         <label for="puntuacion">Puntuación</label>
@@ -85,6 +102,8 @@
       <button class="btn btn-success" id="Registro">Registrar</button>
       </form>
       <hr>
+    </div>
+  </div>
     </div>
   </div>
 
