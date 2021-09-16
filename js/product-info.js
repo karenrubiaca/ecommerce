@@ -57,16 +57,30 @@ document.addEventListener("DOMContentLoaded", function(e){
 
  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
   if (resultObj.status === "ok")
-  {
+  { var star=[];
     productComments = resultObj.data;
     let productCommentHTML  = document.getElementById("productComments");
-    let htmlContentToAppend = "";
     for(let i = 0; i < productComments.length; i++){
-        let product = productComments[i];
-    productCommentHTML.innerHTML += "Puntuación:"+product.score+ "<br>";
-    productCommentHTML.innerHTML += product.user+ "<br>";
-    productCommentHTML.innerHTML += product.description+ " ";
-    productCommentHTML.innerHTML += product.dateTime+ "<br>"+ "<br>"; }
+     let product = productComments[i];
+     for(let i=1;i<=5;i++){
+      if (i<=product.score){
+        star.push('<span class="fa fa-star checked"></span>');
+      }
+      else {
+        star.push('<span class="fa fa-star"></span>');
+      }
+     }//fin segundo for
+     
+     for(let i=0;i<5;i++){
+     productCommentHTML.innerHTML += star[i];}
+     productCommentHTML.innerHTML +="<br>";
+     productCommentHTML.innerHTML += product.user+ "<br>";
+     productCommentHTML.innerHTML += product.description+ " ";
+     productCommentHTML.innerHTML += product.dateTime+ "<br>"+ "<br>"; 
+     star=[];
+    }//fin for
+     
+     
   }
 
  });

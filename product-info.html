@@ -28,10 +28,10 @@
 
 
   <div class="container p-5">
-    <div class="alert alert-info" role="alert" style="position: relative; width:auto; top: 0;">
+    <div class="alert alert-success" role="alert" style="position: relative; width:auto; top: 0;">
       <div class="container mt-5">
         <div class="text-center p-4">         
-          <h2 class="text-info" >Descripción del producto</h2>
+          <h1 style="font-size:50px;" class="text-info" ><strong>Descripción del producto</strong> </h1>
           <p class="text-danger" class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
         </div>
         <h3 class="text-success" id="productName"></h3>
@@ -84,37 +84,41 @@
         </dl>
       </div>
       </div>
-      <div class="container p-5">
-        <div class="alert alert-success" role="alert" style="position: relative; width:auto; top: 0;">
+
+<h4 class="alert-heading">Realizar Comentario</h4>
+<br>
+      <div class="container">
+        <div class="star-widget">
           
-      <h4 class="alert-heading">Realizar Comentario</h4>
-      <form action="">
-        <label for="puntuacion">Puntuación</label>
-        <select id="puntuacion" size="1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      <p><textarea name="comentario" id="txtcomentario"  placeholder="Ingrese su comentario.." cols="60" rows="3" ></textarea>
-      </p>
+          <input type="radio" name="star" id="star-5">
+          <label for="star-5" class="fas fa-star"></label>
+          <input type="radio" name="star" id="star-4">
+          <label for="star-4" class="fas fa-star"></label>
+          <input type="radio" name="star" id="star-3">
+          <label for="star-3" class="fas fa-star"></label>
+          <input type="radio" name="star" id="star-2">
+          <label for="star-2" class="fas fa-star"></label>
+          <input type="radio" name="star" id="star-1">
+          <label for="star-1" class="fas fa-star"></label>
+          <p id="puntaje">Puntuación</p>
+      <form action="#">
+         <div><textarea name="comentario" id="txtcomentario"  placeholder="Ingrese su comentario.." cols="60" rows="3" ></textarea>
+         </div>
       <button class="btn btn-success" id="Registro">Registrar</button>
       </form>
-      <hr>
+      <hr> 
     </div>
-  </div>
-    </div>
-  </div>
+      </div> 
+      </div>
+   </div>
 
-  <footer class="text-muted">
+   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2021</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
+
   </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
