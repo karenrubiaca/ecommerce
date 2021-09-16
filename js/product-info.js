@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     let commentNewHTML=document.getElementById("txtcomentario");
     let puntuacionNewHTML=document.getElementById("puntuacion");
     productCommentPuntuacionHTML.innerHTML += commentNewHTML;
-    productCommentPuntuacionHTML.innerHTML += "Puntuación"+puntuacionNewHTML;
+    //productCommentPuntuacionHTML.innerHTML += "Puntuación"+puntuacionNewHTML;
   });
 
  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
