@@ -98,10 +98,10 @@
           <label for="star-2" class="fas fa-star"></label>
           <input type="radio" name="star" id="star-1">
           <label for="star-1" class="fas fa-star"></label>
-      <form >
+      <form id="myform">
          <div><textarea name="comentario" id="txtcomentario" placeholder="Ingrese su comentario.." cols="46" rows="3" required></textarea>
          </div>
-      <button onclick="Registrar(txtcomentario.value,star-1.value,star-2.value,star-3.value,star-4.value,star-5.value)" class="btn btn-success" id="Registro">Registrar</button>
+      <button onsubmit="return false" class="btn btn-success" id="Registro">Registrar</button>
       </form>
       <hr> 
     </div>

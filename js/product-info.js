@@ -2,27 +2,7 @@
 
  
 
-  function Registrar(comentario,star1,star2,star3,star4,star5){
-   sessionStorage.setItem("coment",comentario);
-    let productCommentPuntuacionHTML  = document.getElementById("productComments");
-   // let puntuacionNewHTML=document.getElementById("puntuacion");
-    
-  document.getElementById("txtcomentario")="";
-
-    let user=sessionStorage.getItem("usuario");
-    com=sessionStorage.getItem("coment");
-  productCommentPuntuacionHTML.innerHTML += user+ "<br>";
-  productCommentPuntuacionHTML.innerHTML += com+ " ";
- var d = new Date();
- var year = d.getFullYear();
- var month = d.getMonth();//mes
- var day = d.getDate();//dia
- var hours = d.getHours();//hora
- var minutes = d.getMinutes();//minuto
- var seconds = d.getSeconds();//segundo
-  productCommentPuntuacionHTML.innerHTML+= year +"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+ "<br>"+ "<br>";
-
-  }
+ 
 
   function showImagesGallery(array){
   
@@ -71,10 +51,28 @@ document.addEventListener("DOMContentLoaded", function(e){
   }
   });
 
+  document.getElementById("Registro").addEventListener("click", function(e){
+    let coment=document.getElementById("txtcomentario").value;
 
+    let productCommentPuntuacionHTML  = document.getElementById("productComments");
+   // let puntuacionNewHTML=document.getElementById("puntuacion");
+    
+  let strellita=document.getElementById("star-3");
+  console.log(strellita.value);
 
-
-
+    let user=sessionStorage.getItem("usuario");
+  productCommentPuntuacionHTML.innerHTML += user+ "<br>";
+  productCommentPuntuacionHTML.innerHTML += coment+ " ";
+ var d = new Date();
+ var year = d.getFullYear();
+ var month = d.getMonth();//mes
+ var day = d.getDate();//dia
+ var hours = d.getHours();//hora
+ var minutes = d.getMinutes();//minuto
+ var seconds = d.getSeconds();//segundo
+  productCommentPuntuacionHTML.innerHTML+= year +"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+ "<br>"+ "<br>";
+  document.getElementById('myform').reset();
+});
 
  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
   if (resultObj.status === "ok")
