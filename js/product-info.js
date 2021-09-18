@@ -1,8 +1,20 @@
   var product = {};
 
- 
+  function addStar(array,puntuacion){
+    let star=[];
+    for(let i=1;i<=5;i++){
+      if (i<=puntuacion){
+        star.push('<span class="fa fa-star checked"></span>');
+      }
+      else {
+        star.push('<span class="fa fa-star"></span>');
+      }
+     }//fin segundo for
+     
+     for(let i=0;i<5;i++){//agrego las estrellas
+     array.innerHTML += star[i];}
+  }
 
- 
 
   function showImagesGallery(array){
   
@@ -56,12 +68,14 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     let productCommentPuntuacionHTML  = document.getElementById("productComments");
    // let puntuacionNewHTML=document.getElementById("puntuacion");
+    if (coment.trim()!=="")
+   {let puntuacion=document.getElementById("star").value;
+   addStar(productCommentPuntuacionHTML,puntuacion)
+   
     
-  let strellita=document.getElementById("star-3");
-  console.log(strellita.value);
 
-    let user=sessionStorage.getItem("usuario");
-  productCommentPuntuacionHTML.innerHTML += user+ "<br>";
+  let user=sessionStorage.getItem("usuario");
+  productCommentPuntuacionHTML.innerHTML += "<br>"+user+ "<br>";
   productCommentPuntuacionHTML.innerHTML += coment+ " ";
  var d = new Date();
  var year = d.getFullYear();
@@ -72,31 +86,26 @@ document.addEventListener("DOMContentLoaded", function(e){
  var seconds = d.getSeconds();//segundo
   productCommentPuntuacionHTML.innerHTML+= year +"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+ "<br>"+ "<br>";
   document.getElementById('myform').reset();
+  productCommentPuntuacionHTML.innerHTML+= "<hr>";
+
+  }
 });
 
  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
   if (resultObj.status === "ok")
-  { var star=[];
+  { 
     productComments = resultObj.data;
     let productCommentHTML  = document.getElementById("productComments");
     for(let i = 0; i < productComments.length; i++){
      let product = productComments[i];
-     for(let i=1;i<=5;i++){
-      if (i<=product.score){
-        star.push('<span class="fa fa-star checked"></span>');
-      }
-      else {
-        star.push('<span class="fa fa-star"></span>');
-      }
-     }//fin segundo for
+     addStar(productCommentHTML,product.score);
+ 
      
-     for(let i=0;i<5;i++){//agrego las estrellas
-     productCommentHTML.innerHTML += star[i];}
       //agrego el usuario, descripción y fecha
      productCommentHTML.innerHTML +="<br>";
      productCommentHTML.innerHTML += product.user+ "<br>";
      productCommentHTML.innerHTML += product.description+ " ";
-     productCommentHTML.innerHTML += product.dateTime+ "<br>"+ "<br>"; 
+     productCommentHTML.innerHTML += product.dateTime+ "<br>"+ "<hr>"; 
      star=[];
     }//fin for
      

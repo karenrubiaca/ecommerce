@@ -85,22 +85,18 @@
       </div>
 
 <div class="alert alert-success" role="alert" style="position: relative; width: 50%;">
-        <h2 class="alert-heading" style="text-align: center;"><strong>Realizar Comentario</strong> </h2>
-        
-        <div class="star-widget">
-          <input type="radio" name="star" id="star-5">
-          <label for="star-5" class="fas fa-star"></label>
-          <input type="radio" name="star" id="star-4">
-          <label for="star-4" class="fas fa-star"></label>
-          <input type="radio" name="star" id="star-3">
-          <label for="star-3" class="fas fa-star"></label>
-          <input type="radio" name="star" id="star-2">
-          <label for="star-2" class="fas fa-star"></label>
-          <input type="radio" name="star" id="star-1">
-          <label for="star-1" class="fas fa-star"></label>
+      <hr> 
+      <h2 class="alert-heading" style="text-align: center;"><strong>Realizar Comentario</strong> </h2>
+        <p>Puntuación: <select id="star" name="star">
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>       
+          </select>
       <form id="myform">
          <div><textarea name="comentario" id="txtcomentario" placeholder="Ingrese su comentario.." cols="46" rows="3" required></textarea>
-         </div>
+         </p>
       <button onsubmit="return false" class="btn btn-success" id="Registro">Registrar</button>
       </form>
       <hr> 
