@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function(e){
      productCommentHTML.innerHTML += product.user+ "<br>";
      productCommentHTML.innerHTML += product.description+ " ";
      productCommentHTML.innerHTML += product.dateTime+ "<br>"+ "<hr>"; 
-     star=[];
     }//fin for
      
      
