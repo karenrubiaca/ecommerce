@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         let rel=prod[indice];
         prodRelAdd+= `    
         <a href="product-info.html" class="list-group-item list-group-item-action">
-        <div class="card">
+        <div class="card col-6">
         <img src="` + rel.imgSrc + `" alt="Denim Jeans" style="width:100%">
         <h4 class="mb-1">`+ rel.name +`</h4>
         <p class="price">`+rel.currency+" "+ rel.cost + `</p>
@@ -84,6 +84,34 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById("prodRel").innerHTML=prodRelAdd;
 
        }
+
+{/* <div class="row">
+
+<div class="col-6">
+  <div class="row">
+    <div class="card col-6">
+      <img class="img-fluid" src="img.jpg" alt="alternative">
+    </div>
+    <div class="card col-6">
+      <h3>Hola</h3>
+    </div>
+  </div>
+</div>
+
+<div class="col-6">
+  <div class="row">
+    <div class="card col-6">
+      <img class="img-fluid" src="img.jpg" alt="alternative">
+    </div>
+    <div class="card col-6">
+      <h3>Hola</h3>
+    </div>
+  </div>
+</div>
+
+</div> */}
+
+
   });//end PRODUCTS_URL               
 
   }
