@@ -60,9 +60,35 @@ document.addEventListener("DOMContentLoaded", function(e){
 
       //Muestro las imagenes en forma de galería
       showImagesGallery(product.images);
-  }
-  });
+      let prodRel=product.relatedProducts;
 
+  getJSONData(PRODUCTS_URL).then(function(resultObj){
+    if (resultObj.status === "ok")
+    {
+      prod=resultObj.data;
+     let prodRelAdd="";
+      for(let indice of prodRel){
+        let rel=prod[indice];
+        prodRelAdd+= `    
+        <a href="product-info.html" class="list-group-item list-group-item-action">
+        <div class="card">
+        <img src="` + rel.imgSrc + `" alt="Denim Jeans" style="width:100%">
+        <h4 class="mb-1">`+ rel.name +`</h4>
+        <p class="price">`+rel.currency+" "+ rel.cost + `</p>
+        <p class="mb-1">` +" "+ rel.description + `</p>
+        </div>
+        </a>
+        `}//end for
+        //<p><button>Add to Cart</button></p>
+ 
+        document.getElementById("prodRel").innerHTML=prodRelAdd;
+
+       }
+  });//end PRODUCTS_URL               
+
+  }
+  });//end PRODUCT_INFO_URL
+ 
   document.getElementById("Registro").addEventListener("click", function(e){
     let coment=document.getElementById("txtcomentario").value;
 
@@ -89,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   productCommentPuntuacionHTML.innerHTML+= "<hr>";
 
   }
-});
+ });//end registro
 
  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
   if (resultObj.status === "ok")
@@ -110,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function(e){
      
      
   }
+ });//end PRODUCT_INFO_COMMENTS_URL
+});//end addEventListener
 
- });
-});
+

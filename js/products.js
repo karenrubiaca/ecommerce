@@ -58,7 +58,7 @@ function showProductsList(products){
                 </a>
                 `
 // ' + ' puede cambiarse por ${} 
-    }}
+    } }
    
     document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
   
