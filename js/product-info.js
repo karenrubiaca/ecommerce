@@ -81,11 +81,19 @@ document.addEventListener("DOMContentLoaded", function(e){
         <p class="price">`+rel.currency+" "+ rel.cost + `</p>
         <p class="mb-1">` +" "+ rel.description + `</p> </a>
         `
-        if ((cantProdRel%2)!==0){
+        if ((cantProdRel%4)===0){
           document.getElementById("col1").innerHTML=prodRelAdd;;
          }
-        else 
+        else if ((cantProdRel%4)===1){
         document.getElementById("col2").innerHTML=prodRelAdd;
+         }
+        else if ((cantProdRel%4)===2){
+          document.getElementById("col3").innerHTML=prodRelAdd;;
+         }
+        else if ((cantProdRel%4)===3){
+          document.getElementById("col4").innerHTML=prodRelAdd;;
+         }
+        
       }//end for
         
         //<p><button>Add to Cart</button></p>
