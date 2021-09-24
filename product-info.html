@@ -43,93 +43,71 @@
           </dd>
           <div class="row">
             <div class="col-4">  
-
-
-          <dt class="p-3 mb-2 bg-info text-white">Costo del producto</dt>
-          <dd>
-            <p class="text-success" id="productCost"></p>
-          </dd></div>
-
+             <dt class="p-3 mb-2 bg-info text-white">Costo del producto</dt>
+             <dd>
+             <p class="text-success" id="productCost"></p>
+             </dd>
+            </div>
             <div class="col-4"> 
-          <dt class="p-3 mb-2 bg-info text-white">Moneda</dt>
-          <dd>
-            <p class="text-success" id="productCurrency"></p>
-          </dd> </div> 
-
+              <dt class="p-3 mb-2 bg-info text-white">Moneda</dt>
+              <dd>
+              <p class="text-success" id="productCurrency"></p>
+             </dd> 
+            </div> 
             <div class="col-4"> 
-          <dt class="p-3 mb-2 bg-info text-white">Cantidad de productos vendidos</dt>
-          <dd>
-            <p class="text-success" id="productSoldCount"></p>
-        </div>
-      </dd>
-
+              <dt class="p-3 mb-2 bg-info text-white">Cantidad de productos vendidos</dt>
+              <dd>
+              <p class="text-success" id="productSoldCount"></p>
+            </div>
             <div class="col-4"> 
-          <dt class="p-3 mb-2 bg-info text-white">Categoría</dt>
-          <dd>
-            <p class="text-success" id="productCategoria"></p>
-          </dd>
-        </div>
-      </div>
+              <dt class="p-3 mb-2 bg-info text-white">Categoría</dt>
+              <dd>
+              <p class="text-success" id="productCategoria"></p>
+              </dd>
+            </div>
+          </div>
           <dt class="p-3 mb-2 bg-info text-white">Imágenes ilustrativas</dt>
-          <dd>
+           <dd>
             <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
             </div>
-          </dd>
-          <dt class="p-3 mb-2 bg-info text-white">Comentarios</dt> 
-          <dd>
-            <div class="text-success" class="row text-center text-lg-left pt-2" id="productComments">
-            </div>
-          </dd>
+           </dd>
         </dl>
       </div>
-      </div>
-      
-      <p class="p-3 mb-2 bg-info text-white">Productos Relacionados</p> 
-      <div clas= "row">
-        <div id="prodRel">
-          <div class="row">
-
-              <div class="col-sm-6" >
-                  <div class="card-body" id="col1"></div>
-              </div>
-            
-              <div class="col-sm-6" >
-                <div class="card-body" id="col2"></div>
-              </div>
-            
-              <div class="col-sm-6" >
-                <div class="card" id="col3"></div>
-              </div>
-
-              <div class="col-sm-6" >
-                <div class="card" id="col4"></div>
-              </div>
-              
-            </div>
-
-            </div> 
-        </div>
-        </div>
-     
-
-<div class="alert alert-success" role="alert" style="position: relative; width: 50%;">
-      <hr> 
-      <h2 class="alert-heading" style="text-align: center;"><strong>Realizar Comentario</strong> </h2>
-        <p>Puntuación: <select id="star" name="star">
-          <option value="5">5</option>
-          <option value="4">4</option>
-          <option value="3">3</option>
-          <option value="2">2</option>
-          <option value="1">1</option>       
-          </select>
-      <form id="myform">
-         <div><textarea name="comentario" id="txtcomentario" placeholder="Ingrese su comentario.." cols="46" rows="3" required></textarea>
-         </p>
-      <button onsubmit="return false" class="btn btn-success" id="Registro">Registrar</button>
-      </form>
-      <hr> 
     </div>
-      </div> 
+    
+
+      <div class="container p-5">
+        <dt class="p-3 mb-2 bg-info text-white">Productos Relacionados</dt> 
+        <div class="row">
+          <div class=" col" id="col1"></div>
+          <div class=" col" id="col2"></div>        
+          <hr>
+        </div>
+      
+       <div class="container p-5">
+         <div class="alert alert-success" role="alert" style="position: relative; width:auto; top: 0;">
+          <div class="container mt-5">
+           <dt class="p-3 mb-2 bg-info text-white">Comentarios</dt> 
+           <dd>
+            <div class="text-success" class="row text-center text-lg-left pt-2" id="productComments">
+            </div>
+           </dd>
+      
+           <dt class="p-3 mb-2 bg-info text-white"><strong>Realizar Comentario</strong> </dt>
+           <p>Puntuación: <select id="star" name="star">
+           <option value="5">5</option>
+           <option value="4">4</option>
+           <option value="3">3</option>
+           <option value="2">2</option>
+           <option value="1">1</option>       
+           </select></p>
+           <form id="myform">
+             <textarea name="comentario" id="txtcomentario" placeholder="Ingrese su comentario.." cols="46" rows="3" required></textarea>
+             <button onsubmit="return false" class="btn btn-success" id="Registro">Registrar</button>
+           </form>
+           </div>
+         </div>
+       </div>
       </div>
    </div>
 

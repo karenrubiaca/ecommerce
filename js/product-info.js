@@ -74,22 +74,16 @@ document.addEventListener("DOMContentLoaded", function(e){
         
         prodRelAdd+= `    
         <a href="product-info.html" class="list-group-item list-group-item-action">
-        <img src="` + rel.imgSrc + ` style="width:100%">
+        <img src="` + rel.imgSrc + `" alt="` + rel.description + `" class="img-thumbnail" >
         <h4 class="mb-1">`+ rel.name +`</h4>
         <p class="price">`+rel.currency+" "+ rel.cost + `</p>
-        <p class="mb-1">` +" "+ rel.description + `</p> </a>
-        `
-        if ((cantProdRel%4)===1){
+       </a>
+        ` // <p class="mb-1">` +" "+ rel.description + `</p> 
+        if ((cantProdRel%2)===1){
           document.getElementById("col1").innerHTML=prodRelAdd;
          }
-        else if ((cantProdRel%4)===2){
+        else if ((cantProdRel%2)===0){
         document.getElementById("col2").innerHTML=prodRelAdd;
-         }
-        else if ((cantProdRel%4)===3){
-          document.getElementById("col3").innerHTML=prodRelAdd;
-         }
-        else if ((cantProdRel%4)===0){
-          document.getElementById("col4").innerHTML=prodRelAdd;
          }
          prodRelAdd="";
       }//end for
@@ -99,32 +93,6 @@ document.addEventListener("DOMContentLoaded", function(e){
        
 
        }
-
-{/* <div class="row">
-
-<div class="col-6">
-  <div class="row">
-    <div class="card col-6">
-      <img class="img-fluid" src="img.jpg" alt="alternative">
-    </div>
-    <div class="card col-6">
-      <h3>Hola</h3>
-    </div>
-  </div>
-</div>
-
-<div class="col-6">
-  <div class="row">
-    <div class="card col-6">
-      <img class="img-fluid" src="img.jpg" alt="alternative">
-    </div>
-    <div class="card col-6">
-      <h3>Hola</h3>
-    </div>
-  </div>
-</div>
-
-</div> */}
 
 
   });//end PRODUCTS_URL               
