@@ -70,15 +70,17 @@ document.addEventListener("DOMContentLoaded", function(e){
       for(let indice of prodRel){
         let rel=prod[indice];
         prodRelAdd+= `    
-        <a href="product-info.html" class="list-group-item list-group-item-action">
+       
         <div class="card col-6">
+        <a href="product-info.html" class="list-group-item list-group-item-action">
         <img src="` + rel.imgSrc + `" alt="Denim Jeans" style="width:100%">
         <h4 class="mb-1">`+ rel.name +`</h4>
         <p class="price">`+rel.currency+" "+ rel.cost + `</p>
-        <p class="mb-1">` +" "+ rel.description + `</p>
+        <p class="mb-1">` +" "+ rel.description + `</p> </a>
         </div>
-        </a>
+       
         `}//end for
+        
         //<p><button>Add to Cart</button></p>
  
         document.getElementById("prodRel").innerHTML=prodRelAdd;
