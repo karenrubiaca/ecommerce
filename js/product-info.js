@@ -66,24 +66,31 @@ document.addEventListener("DOMContentLoaded", function(e){
     if (resultObj.status === "ok")
     {
       prod=resultObj.data;
+     let prodRelAddCol1=document.getElementById("col1");
+     let prodRelAddCol2=document.getElementById("col2");
+     let cantProdRel=0;
      let prodRelAdd="";
       for(let indice of prodRel){
         let rel=prod[indice];
+        cantProdRel+=1;
+        
         prodRelAdd+= `    
-       
-        <div class="card col-6">
         <a href="product-info.html" class="list-group-item list-group-item-action">
         <img src="` + rel.imgSrc + `" alt="Denim Jeans" style="width:100%">
         <h4 class="mb-1">`+ rel.name +`</h4>
         <p class="price">`+rel.currency+" "+ rel.cost + `</p>
         <p class="mb-1">` +" "+ rel.description + `</p> </a>
-        </div>
-       
-        `}//end for
+        `
+        if ((cantProdRel%2)!==0){
+          document.getElementById("col1").innerHTML=prodRelAdd;;
+         }
+        else 
+        document.getElementById("col2").innerHTML=prodRelAdd;
+      }//end for
         
         //<p><button>Add to Cart</button></p>
- 
-        document.getElementById("prodRel").innerHTML=prodRelAdd;
+
+       
 
        }
 
