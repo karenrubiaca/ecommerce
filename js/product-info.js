@@ -99,8 +99,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   }
   });//end PRODUCT_INFO_URL
- 
-  document.getElementById("Registro").addEventListener("click", function(e){
+
+
+
+  
+  function addComment(event){
+    event.preventDefault();
     let coment=document.getElementById("txtcomentario").value;
 
     let productCommentPuntuacionHTML  = document.getElementById("productComments");
@@ -126,7 +130,12 @@ document.addEventListener("DOMContentLoaded", function(e){
   productCommentPuntuacionHTML.innerHTML+= "<hr>";
 document.getElementById('myform').reset();
   }
- });//end registro
+ }//);//end registro
+
+
+ myform = document.getElementById('myform');
+ 
+ myform.addEventListener("submit", addComment);
 
  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
   if (resultObj.status === "ok")
