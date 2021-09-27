@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         cantProdRel+=1;
         
         prodRelAdd+= `    
-        <a href="product-info.html" class="list-group-item list-group-item-action">
+        <a href="product-info.html" class="list-group-item list-group-item-action" style>
         <img src="` + rel.imgSrc + `" alt="` + rel.description + `" class="img-thumbnail" >
         <h4 class="mb-1">`+ rel.name +`</h4>
         <p class="price">`+rel.currency+" "+ rel.cost + `</p>
@@ -122,9 +122,9 @@ document.addEventListener("DOMContentLoaded", function(e){
  var minutes = d.getMinutes();//minuto
  var seconds = d.getSeconds();//segundo
   productCommentPuntuacionHTML.innerHTML+= year +"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+ "<br>"+ "<br>";
-  document.getElementById('myform').reset();
+  
   productCommentPuntuacionHTML.innerHTML+= "<hr>";
-
+document.getElementById('myform').reset();
   }
  });//end registro
 

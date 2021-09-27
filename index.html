@@ -21,14 +21,14 @@
       location.href="login.html";     
     </script>
     
-    <nav class="site-header sticky-top py-1 bg-dark">
+    <nav class="site-header sticky-top py-1 bg-dark" id="navegador">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a> 
-        <p class="py-2 d-none d-md-inline-block" href="#" id="nameUsuario">  </p>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>  
+        <p class="py-2 d-none d-md-inline-block" href="#" id="Usuario">  </p>
+
       </div>
     </nav>
     <main role="main">
@@ -113,8 +113,5 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
-    <script>  if (sessionStorage.getItem("usuario")){
-      let carge=document.getElementById("nameUsuario")
-      carge.innerHTML=localStorage.getItem("usuario");}</script>
   </body>
 </html>
