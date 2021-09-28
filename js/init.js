@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     <button class="btn btn-secondary dropdown-toggle" type="button" id="nameUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     </button>
     <div class="dropdown-menu" aria-labelledby="`+ carge +`">
-      <a class="dropdown-item" href="cart.html">`+ "Ver mi carrito" +`</a>
+      <a class="dropdown-item" href="cart.html">`+ "Mi carrito" +`</a>
       <a class="dropdown-item" href="my-profile.html">`+ "Mi perfil" +`</a>
       <a class="dropdown-item" href="login.html">`+ "Cerrar sesión" +`</a>
     </div>
