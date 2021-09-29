@@ -18,22 +18,23 @@
 
   function showImagesGallery(array){
   
-      let htmlContentToAppend = "";
-  
+      let cont=0;
       for(let i = 0; i < array.length; i++){
           let imageSrc = array[i];
-  
-          htmlContentToAppend += `
-          <div class="col-lg-3 col-md-4 col-6">
-              <div class="d-block mb-4 h-100">
-                  <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-              </div>
-          </div>
-          `
-  
-          document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+          cont+=1;
+          if (cont==1){
+            document.getElementById("carr1").innerHTML+= `
+              <img src="` + imageSrc + `" class="d-block w-100" alt="a">    
+          `          }
+          else {
+            document.getElementById("carr2").innerHTML+= `
+            <div class="carousel-item">
+                <img src="` + imageSrc + `" class="d-block w-100" alt="a"></div>
+            `
+            }
       }
-  }
+      
+  } 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -71,14 +72,13 @@ document.addEventListener("DOMContentLoaded", function(e){
       for(let indice of prodRel){
         let rel=prod[indice];
         cantProdRel+=1;
-        
         prodRelAdd+= `    
         <a href="product-info.html" class="list-group-item list-group-item-action" style>
         <img src="` + rel.imgSrc + `" alt="` + rel.description + `" class="img-thumbnail" >
         <h4 class="mb-1">`+ rel.name +`</h4>
         <p class="price">`+rel.currency+" "+ rel.cost + `</p>
        </a>
-        ` // <p class="mb-1">` +" "+ rel.description + `</p> 
+        ` 
         if ((cantProdRel%2)===1){
           document.getElementById("col1").innerHTML=prodRelAdd;
          }
@@ -87,10 +87,6 @@ document.addEventListener("DOMContentLoaded", function(e){
          }
          prodRelAdd="";
       }//end for
-        
-        //<p><button>Add to Cart</button></p>
-
-       
 
        }
 
@@ -100,41 +96,32 @@ document.addEventListener("DOMContentLoaded", function(e){
   }
   });//end PRODUCT_INFO_URL
 
-
-
-  
   function addComment(event){
-    event.preventDefault();
-    let coment=document.getElementById("txtcomentario").value;
+  event.preventDefault();
+  let coment=document.getElementById("txtcomentario").value;
 
-    let productCommentPuntuacionHTML  = document.getElementById("productComments");
+  let productCommentPuntuacionHTML  = document.getElementById("productComments");
    // let puntuacionNewHTML=document.getElementById("puntuacion");
-    if (coment.trim()!=="")
-   {let puntuacion=document.getElementById("star").value;
-   addStar(productCommentPuntuacionHTML,puntuacion)
-   
-    
-
+  if (coment.trim()!==""){
+  let puntuacion=document.getElementById("star").value;
+  addStar(productCommentPuntuacionHTML,puntuacion);    
   let user=sessionStorage.getItem("usuario");
   productCommentPuntuacionHTML.innerHTML += "<br>"+user+ "<br>";
   productCommentPuntuacionHTML.innerHTML += coment+ " ";
- var d = new Date();
- var year = d.getFullYear();
- var month = d.getMonth();//mes
- var day = d.getDate();//dia
- var hours = d.getHours();//hora
- var minutes = d.getMinutes();//minuto
- var seconds = d.getSeconds();//segundo
+  var d = new Date();
+  var year = d.getFullYear();
+  var month = d.getMonth();//mes
+  var day = d.getDate();//dia
+  var hours = d.getHours();//hora
+  var minutes = d.getMinutes();//minuto
+  var seconds = d.getSeconds();//segundo
   productCommentPuntuacionHTML.innerHTML+= year +"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+ "<br>"+ "<br>";
-  
   productCommentPuntuacionHTML.innerHTML+= "<hr>";
-document.getElementById('myform').reset();
+  document.getElementById('myform').reset();
   }
  }//);//end registro
 
-
  myform = document.getElementById('myform');
- 
  myform.addEventListener("submit", addComment);
 
  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
