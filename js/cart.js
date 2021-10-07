@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                 <td><img src="` + elementCart.src + `" alt=" " class="img-thumbnail" style="width:160px; height:160px"></td>
                 <td><p >`+ elementCart.name +`</p></td>
                
-                <td><p class="price">`+elementCart.currency+" "+elementCart.unitCost+" "+ `</p></td>
-                <td><p class="price"><input type="number" min="1" value="${elementCart.count}" size="10">` +`</p></td>
-                <td><p class="price">`+elementCart.currency+" "+TotalArt+ `</p></td>                
+                <td>`+elementCart.currency+" "+elementCart.unitCost+" "+ `</td>
+                <td><input type="number" min="1" value="${elementCart.count}" size="10">` +`</td>
+                <td>`+elementCart.currency+" "+TotalArt+ `</td>                
                 
                
                 </tr>`}
