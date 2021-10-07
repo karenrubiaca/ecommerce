@@ -5,7 +5,15 @@ var cart = {};
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART).then(function(resultObj){
         if (resultObj.status === "ok"){
-            let elemCartAdd="";
+            let elemCartAdd=` <tr>
+            <th>`+ "Producto" +`</th>
+            <th>`+"Descripción"+`</th>
+            <th>`+"Precio"+`</th>
+            <th>`+"Cantidad de Productos"+`</th>
+            <th>`+"Subtotal"+`</th>
+            <th>`+"Envío"+`</th>
+            <th>`+"Total"+`</th>
+          </tr>`;
           
             cart=resultObj.data;
             //articles
@@ -15,21 +23,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             for(let indice of cart.articles){
                 let elementCart=indice;
                 elemCartAdd+= `
-                <tr>
-                <th>`+ "Producto" +`</th>
-                <th>`+"Descripción"+`</th>
-                <th>`+"Precio"+`</th>
-                <th>`+"Cantidad de Productos"+`</th>
-                <th>`+"Subtotal"+`</th>
-                <th>`+"Envío"+`</th>
-                <th>`+"Total"+`</th>
-              </tr>
+               
                 <tr>
                 <td><img src="` + elementCart.src + `" alt="` + elementCart.description + `" class="img-thumbnail" style="width:160px; height:160px"></td>
                 <td><h4 class="mb-1">`+ elementCart.name +`</h4></td>
                
                 <td><p class="price">`+elementCart.currency+" "+elementCart.unitCost+" "+ `</p></td>
                 <td><p class="price">` + elementCart.count +`</p></td>
+                <td><p class="price">`+elementCart.currency+" "+elementCart.unitCost*elementCart.count+" "+ `</p></td>
                </tr>
                <hr>                ` 
                 
