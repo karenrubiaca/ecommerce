@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                
                <th><strong>`+"Método de envío"+`</strong></th>
 
-               <tr><th>Dirección:</th><td><input type="text" placeholder="Calle Número Esquina" size="30" requerid></td></tr>
+               <tr><th>Dirección:</th><td><input type="text" placeholder="Calle" size="30" requerid></td><td><input type="number" placeholder="Número" size="5" requerid></td><td><input type="text" placeholder="Esquina" size="30" requerid></td></tr>
                
                <tr><th>País:</th><td><input type="text" placeholder="País" size="30" requerid></td></tr>
                <tr><th>`+"Tipo de Envío"+`</th><td><select name="select">
