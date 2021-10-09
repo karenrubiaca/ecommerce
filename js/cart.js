@@ -1,6 +1,7 @@
 var cart = {};
 let ident=0;
 let costoSubTotal=0;
+let total=0;
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -22,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                   costoSubTotal+=TotalArt*40;
                 else costoSubTotal+=TotalArt;
                 //luego sumo o resto segun el click
-
+                total=costoSubTotal+((costoSubTotal*5)/100);
+                
                 elemCartAdd+= `
                
                 <tr>
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                
 
                <tr><th>`+"SubTotal:"+`</th><td>`+costoSubTotal+`</td></tr> 
-               <tr><th><strong>`+"Total"+`</strong></th><td>`+"Acá va el Total"+`</td></tr> 
+               <tr><th><strong>`+"Total"+`</strong></th><td><p  id="total">`+total+`</p></td></tr> 
                
                <th><strong>`+"Método de envío"+`</strong></th>
 
@@ -65,21 +67,26 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
 
 
-
 //SI HAY UN CLICK EN EL SELECT TIPOENVIO
-
+        document.getElementById("tipoEnvio").addEventListener("click",function(){
         let TipoEnvio=document.getElementById("tipoEnvio").value;
-        if (TipoEnvio===S){
-
+        if (TipoEnvio==="S"){
+          total=costoSubTotal+((costoSubTotal*5)/100);
+          document.getElementById("total").innerHTML=total;
+          console.log(total);
         }
-        else if (TipoEnvio===E){
-
+        else if (TipoEnvio==="E"){
+          total=costoSubTotal+((costoSubTotal*7)/100);
+          document.getElementById("total").innerHTML=total;
+          console.log(total);
         }
-        else if (TipoEnvio===P){
-
+        else if (TipoEnvio==="P"){
+          total=costoSubTotal+((costoSubTotal*15)/100);
+          document.getElementById("total").innerHTML=total;
+          console.log(total);
         }
         
-        
+      });
     
         });
 });
