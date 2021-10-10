@@ -4,7 +4,7 @@ let costoSubTotal=0;
 let total=0;
 let costoEnvio=0;
 let cantInputCantProd=0;
-let arrCantElemTipo=[];
+let arrUnitCostElem=[];
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", function(e){
                
                 <td>`+elementCart.currency+" "+elementCart.unitCost+" "+ `</td>
                 <td><input class="bg-success"" type="number" min="1" value="${elementCart.count}" size="10" id="${cantInputCantProd}">` +`</td>
-                <td>`+elementCart.currency+" "+TotalArt+ `</td>                
+                <td>`+TotalArt+ `</td>                
                 
                
                 </tr>`
-                arrCantElemTipo.push(elementCart.count);
+                arrUnitCostElem.push(elementCart.unitCost);
                 }//FINAL FOR
                 costoEnvio=(costoSubTotal*5)/100;
                elemCartAdd+= `
@@ -123,15 +123,20 @@ document.addEventListener("DOMContentLoaded", function(e){
            document.getElementById(i).addEventListener("click",function(){
            let Table= document.getElementById("addElemCart");
            let classDT=Table.getElementsByClassName("bg-success");
+           
+           let classTd=Table.getElementsByTagName("td");
         //   if (document.getElementById(i).value>arrCantElemTipo.push[i]){
-             let dif=document.getElementById(i).value-arrCantElemTipo.push[i];
+            // let dif=document.getElementById(i).value-arrCantElemTipo.push[i];
            // classDT[9].innerHTML+=dif*classDT[8];
            // arrCantElemTipo.push[1].innerHTML+=dif;
            // classDT[1].innerHTML = 33;
                   
            //classDT[9].innerHTML=(document.getElementById("1").value-arrCantElemTipo.push[1])*1
+           let cant=classDT[i-1].value;
+           let precio=arrUnitCostElem[i-1];
+           classTd[i*5-1].innerHTML=cant*precio;
            console.log(classDT[i-1].value);//classDT[7]*classDT[8]
-
+           console.log(classTd[i*5-1]);
           // }
 
            
