@@ -5,6 +5,8 @@ let total=0;
 let costoEnvio=0;
 let cantInputCantProd=0;
 let arrUnitCostElem=[];
+let costArtTotales=[];
+let tipoMoneda=[];
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -20,8 +22,13 @@ document.addEventListener("DOMContentLoaded", function(e){
            // console.log(cart.articles);
             for(let indice of cart.articles){
                 let elementCart=indice;
-                cantInputCantProd+=1
+                cantInputCantProd+=1;
+
                 let TotalArt= elementCart.unitCost * elementCart.count;
+
+                tipoMoneda.push(elementCart.currency);
+                costArtTotales.push(TotalArt);
+
                 if (elementCart.currency==="USD")
                   costoSubTotal+=TotalArt*40;
                 else costoSubTotal+=TotalArt;
@@ -53,21 +60,21 @@ document.addEventListener("DOMContentLoaded", function(e){
             <tr><th>`+"Envío:"+`</th><td><p id="costoEnvio">`+"UYU"+costoEnvio+`</p></td></tr> 
                
 
-               <tr><th>`+"SubTotal:"+`</th><td>`+"UYU"+costoSubTotal+`</td></tr> 
+               <tr><th>`+"SubTotal:"+`</th><td id="costoSubTot">`+"UYU"+costoSubTotal+`</td></tr> 
                <tr class="text-danger"><th><strong>`+"Total"+`</strong></th><td><p  id="total">`+"UYU"+total+`</p></td></tr> 
                
-               <th><strong>`+"Método de envío"+`</strong></th>
-
-               <tr><th>Dirección:</th><td><input type="text" placeholder="Calle" size="30" id="calle" required></td><td><input type="number" placeholder="Número" id="numero"  size="5" required></td><td><input type="text" placeholder="Esquina" id="esquina" size="30" required></td></tr>
-               
-               <tr><th>País:</th><td><input type="text" placeholder="País" id="pais" size="30" required></td></tr>
-               <tr><th>`+"Tipo de Envío"+`</th><td><select name="select" id=tipoEnvio>
-                <option value="S" selected>`+"Standard"+`</option>
-                <option value="E" >`+"Express"+`</option>
-                <option value="P" >`+"Premium"+`</option>
-              </select></p></td></tr>
+    
               `
+            document.getElementById("MetEnv").innerHTML=  `<th><strong>`+"Método de envío"+`</strong></th>
+
+            <tr><th>Dirección:</th><td><input type="text" placeholder="Calle" size="30" id="calle" required></td><td><input type="number" placeholder="Número" id="numero"  size="5" required></td><td><input type="text" placeholder="Esquina" id="esquina" size="30" required></td></tr>
             
+            <tr><th>País:</th><td><input type="text" placeholder="País" id="pais" size="30" required></td></tr>
+            <tr><th>`+"Tipo de Envío"+`</th><td><select name="select" id=tipoEnvio>
+             <option value="S" selected>`+"Standard"+`</option>
+             <option value="E" >`+"Express"+`</option>
+             <option value="P" >`+"Premium"+`</option>
+           </select></p></td></tr>`
              document.getElementById("addElemCart").innerHTML+=elemCartAdd;
             
         }//FINAL IF JSON OK
@@ -134,10 +141,20 @@ document.addEventListener("DOMContentLoaded", function(e){
            //classDT[9].innerHTML=(document.getElementById("1").value-arrCantElemTipo.push[1])*1
            let cant=classDT[i-1].value;
            let precio=arrUnitCostElem[i-1];
+
+
+
            classTd[i*5-1].innerHTML=cant*precio;
            console.log(classDT[i-1].value);//classDT[7]*classDT[8]
-           console.log(classTd[i*5-1]);
-          // }
+           console.log(classTd[i*5]);
+       ///    console.log(classTd[2]..charAt(0));
+          // costArtTotales[i-1];
+         if (tipoMoneda[i-1]==="USD"){
+            document.getElementById("costoSubTot").innerHTML=costoSubTotal+(cant*precio-costArtTotales[i-1])*40;
+          } else document.getElementById("costoSubTot").innerHTML=costoSubTotal+(cant*precio-costArtTotales[i-1]);
+         
+          
+         // }
 
            
            
