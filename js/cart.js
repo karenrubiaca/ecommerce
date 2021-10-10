@@ -7,6 +7,25 @@ let cantInputCantProd=0;
 let arrUnitCostElem=[];
 let costArtTotales=[];
 let tipoMoneda=[];
+
+function tipoEnvio(TipoEnvio){
+  if (TipoEnvio==="S"){
+    total=costoSubTotal+((costoSubTotal*5)/100);
+    document.getElementById("total").innerHTML="UYU"+" "+total;
+    document.getElementById("costoEnvio").innerHTML="UYU"+" "+((costoSubTotal*5)/100);
+  }
+  else if (TipoEnvio==="E"){
+    total=costoSubTotal+((costoSubTotal*7)/100);
+    document.getElementById("total").innerHTML="UYU"+" "+total;
+    
+    document.getElementById("costoEnvio").innerHTML="UYU"+" "+((costoSubTotal*7)/100);
+  }
+  else if (TipoEnvio==="P"){
+    total=costoSubTotal+((costoSubTotal*15)/100);
+    document.getElementById("total").innerHTML="UYU"+" "+total;
+    document.getElementById("costoEnvio").innerHTML="UYU"+" "+((costoSubTotal*15)/100);
+  }
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -83,22 +102,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 //SI HAY UN CLICK EN EL SELECT TIPOENVIO
         document.getElementById("tipoEnvio").addEventListener("click",function(){
           let TipoEnvio=document.getElementById("tipoEnvio").value;
-          if (TipoEnvio==="S"){
-            total=costoSubTotal+((costoSubTotal*5)/100);
-            document.getElementById("total").innerHTML="UYU"+" "+total;
-            document.getElementById("costoEnvio").innerHTML="UYU"+" "+((costoSubTotal*5)/100);
-          }
-          else if (TipoEnvio==="E"){
-            total=costoSubTotal+((costoSubTotal*7)/100);
-            document.getElementById("total").innerHTML="UYU"+" "+total;
-            
-            document.getElementById("costoEnvio").innerHTML="UYU"+" "+((costoSubTotal*7)/100);
-          }
-          else if (TipoEnvio==="P"){
-            total=costoSubTotal+((costoSubTotal*15)/100);
-            document.getElementById("total").innerHTML="UYU"+" "+total;
-            document.getElementById("costoEnvio").innerHTML="UYU"+" "+((costoSubTotal*15)/100);
-          }
+         
           
         });//FINAL TIPO ENVIO
     
@@ -161,6 +165,8 @@ document.addEventListener("DOMContentLoaded", function(e){
           costArtTotales[i-1]=cant*precio; 
             document.getElementById("costoSubTot").innerHTML="UYU"+" "+(costoSubTotal);
           }
+          let nuevoCostoEnvio=document.getElementById("tipoEnvio").value;
+          tipoEnvio(nuevoCostoEnvio);
           
          // }
 
