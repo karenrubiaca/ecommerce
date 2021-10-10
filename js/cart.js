@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(e){
            // console.log(cart.articles);
             for(let indice of cart.articles){
                 let elementCart=indice;
-                
+                cantInputCantProd+=1
                 let TotalArt= elementCart.unitCost * elementCart.count;
                 if (elementCart.currency==="USD")
                   costoSubTotal+=TotalArt*40;
@@ -35,13 +35,13 @@ document.addEventListener("DOMContentLoaded", function(e){
                 <td><p >`+ elementCart.name +`</p></td>
                
                 <td>`+elementCart.currency+" "+elementCart.unitCost+" "+ `</td>
-                <td><input type="number" min="1" value="${elementCart.count}" size="10" id="${cantInputCantProd}">` +`</td>
+                <td><input class="bg-success"" type="number" min="1" value="${elementCart.count}" size="10" id="${cantInputCantProd}">` +`</td>
                 <td>`+elementCart.currency+" "+TotalArt+ `</td>                
                 
                
                 </tr>`
                 arrCantElemTipo.push(elementCart.count);
-                cantInputCantProd+=1}//FINAL FOR
+                }//FINAL FOR
                 costoEnvio=(costoSubTotal*5)/100;
                elemCartAdd+= `
                <tr><th>`+"Forma de Pago"+`</th><td><select name="select">
@@ -118,31 +118,35 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
 
+          for (let i=1;i<=cantInputCantProd;i++) {
 
-
-
-        document.getElementById("0").addEventListener("click",function(){
-                 
-          });//FINAL 
-          document.getElementById("1").addEventListener("click",function(){
+           document.getElementById(i).addEventListener("click",function(){
            let Table= document.getElementById("addElemCart");
-           let classDT=Table.getElementsByTagName('td');
-           if (document.getElementById("1").value>arrCantElemTipo.push[1]){
-             let dif=document.getElementById("1").value-arrCantElemTipo.push[1];
-            classDT[9].innerHTML+=dif*classDT[8];
-            arrCantElemTipo.push[1].innerHTML+=dif;
-           
-          } 
-          classDT[9].innerHTML=(document.getElementById("1").value-arrCantElemTipo.push[1])*1
-           console.log(classDT[7]*classDT[8]);
-           
-           
+           let classDT=Table.getElementsByClassName("bg-success");
+        //   if (document.getElementById(i).value>arrCantElemTipo.push[i]){
+             let dif=document.getElementById(i).value-arrCantElemTipo.push[i];
+           // classDT[9].innerHTML+=dif*classDT[8];
+           // arrCantElemTipo.push[1].innerHTML+=dif;
+           // classDT[1].innerHTML = 33;
+                  
+           //classDT[9].innerHTML=(document.getElementById("1").value-arrCantElemTipo.push[1])*1
+           console.log(classDT[i-1].value);//classDT[7]*classDT[8]
+
+          // }
+
            
            
                  
-            });//FINAL 
+            
+          });
+            }//fin for
 
-    });//FINAL GETJSON
+
+
+
+});//FINAL Json
+
+          
 
   
 
