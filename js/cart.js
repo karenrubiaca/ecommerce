@@ -52,14 +52,15 @@ document.addEventListener("DOMContentLoaded", function(e){
                
                <th><strong>`+"Método de envío"+`</strong></th>
 
-               <tr><th>Dirección:</th><td><input type="text" placeholder="Calle" size="30" requerid></td><td><input type="number" placeholder="Número" size="5" requerid></td><td><input type="text" placeholder="Esquina" size="30" requerid></td></tr>
+               <tr><th>Dirección:</th><td><input type="text" placeholder="Calle" size="30" id="calle" required></td><td><input type="number" placeholder="Número" id="numero"  size="5" required></td><td><input type="text" placeholder="Esquina" id="esquina" size="30" required></td></tr>
                
-               <tr><th>País:</th><td><input type="text" placeholder="País" size="30" requerid></td></tr>
+               <tr><th>País:</th><td><input type="text" placeholder="País" id="pais" size="30" required></td></tr>
                <tr><th>`+"Tipo de Envío"+`</th><td><select name="select" id=tipoEnvio>
                 <option value="S" selected>`+"Standard"+`</option>
                 <option value="E" >`+"Express"+`</option>
                 <option value="P" >`+"Premium"+`</option>
-              </select></p></td></tr>`
+              </select></p></td></tr>
+              `
               
             
              document.getElementById("addElemCart").innerHTML+=elemCartAdd;
@@ -89,18 +90,25 @@ document.addEventListener("DOMContentLoaded", function(e){
         
 
         document.getElementById("pagar").addEventListener("click",function(){
-
-          
-          
-        });
-
+        if(document.getElementById("calle").value&&document.getElementById("numero").value&&document.getElementById("esquina").value&&document.getElementById("pais").value){
         getJSONData(CART_BUY_URL).then(function(resultObj){
           if (resultObj.status === "ok"){
-            cartBuy=resultObj.data;
+              cartBuy=resultObj.data;
               let elemCartBuy="";
               elemCartBuy=cartBuy.msg;
+
+//vaciar tabla:
+              var Table = document.getElementById("addElemCart");
+              Table.innerHTML = "";
+              document.getElementById("vacio").innerHTML=`<h4 style="text-align: center;">Su carrito está vacío</h4>`;
+              document.getElementById("pagar").remove();
+
               alert(elemCartBuy);
-              //window.alert(elemCartBuy);
-            }
-            });
+          }
+        })
+        } 
+        else alert("¡Complete todos los datos de envío!")         
+        });
+
+        ;
 });
