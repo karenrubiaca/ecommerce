@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                
 
                <tr><th>`+"SubTotal:"+`</th><td>`+costoSubTotal+`</td></tr> 
-               <tr><th><strong>`+"Total"+`</strong></th><td><p  id="total">`+total+`</p></td></tr> 
+               <tr class="text-danger"><th><strong>`+"Total"+`</strong></th><td><p  id="total">`+total+`</p></td></tr> 
                
                <th><strong>`+"Método de envío"+`</strong></th>
 
@@ -69,28 +69,38 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 //SI HAY UN CLICK EN EL SELECT TIPOENVIO
         document.getElementById("tipoEnvio").addEventListener("click",function(){
-        let TipoEnvio=document.getElementById("tipoEnvio").value;
-        if (TipoEnvio==="S"){
-          total=costoSubTotal+((costoSubTotal*5)/100);
-          document.getElementById("total").innerHTML=total;
-          console.log(total);
-        }
-        else if (TipoEnvio==="E"){
-          total=costoSubTotal+((costoSubTotal*7)/100);
-          document.getElementById("total").innerHTML=total;
-          console.log(total);
-        }
-        else if (TipoEnvio==="P"){
-          total=costoSubTotal+((costoSubTotal*15)/100);
-          document.getElementById("total").innerHTML=total;
-          console.log(total);
-        }
-        
-      });
+          let TipoEnvio=document.getElementById("tipoEnvio").value;
+          if (TipoEnvio==="S"){
+            total=costoSubTotal+((costoSubTotal*5)/100);
+            document.getElementById("total").innerHTML=total;
+          }
+          else if (TipoEnvio==="E"){
+            total=costoSubTotal+((costoSubTotal*7)/100);
+            document.getElementById("total").innerHTML=total;
+          }
+          else if (TipoEnvio==="P"){
+            total=costoSubTotal+((costoSubTotal*15)/100);
+            document.getElementById("total").innerHTML=total;
+          }
+          
+        });
     
         });
-});
+        
 
- //Premium (2-5 días) - Costo del 15% sobre el subtotal.
-//Express (5-8 días) - Costo del 7% sobre el subtotal.
-//Standard (12 a 15 días) - Costo del 5% sobre el subtotal.
+        document.getElementById("pagar").addEventListener("click",function(){
+
+          
+          
+        });
+
+        getJSONData(CART_BUY_URL).then(function(resultObj){
+          if (resultObj.status === "ok"){
+            cartBuy=resultObj.data;
+              let elemCartBuy="";
+              elemCartBuy=cartBuy.msg;
+              alert(elemCartBuy);
+              //window.alert(elemCartBuy);
+            }
+            });
+});
