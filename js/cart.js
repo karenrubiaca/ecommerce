@@ -36,9 +36,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             
             cart=resultObj.data;
             //articles
-           // console.log(cart);
-            
-           // console.log(cart.articles);
             for(let indice of cart.articles){
                 let elementCart=indice;
                 cantInputCantProd+=1;
@@ -133,26 +130,15 @@ document.addEventListener("DOMContentLoaded", function(e){
 
            document.getElementById(i).addEventListener("click",function(){
            let Table= document.getElementById("addElemCart");
-           let classDT=Table.getElementsByClassName("bg-success");
+           let classIT=Table.getElementsByClassName("bg-success");
            
            let classTd=Table.getElementsByTagName("td");
-        //   if (document.getElementById(i).value>arrCantElemTipo.push[i]){
-            // let dif=document.getElementById(i).value-arrCantElemTipo.push[i];
-           // classDT[9].innerHTML+=dif*classDT[8];
-           // arrCantElemTipo.push[1].innerHTML+=dif;
-           // classDT[1].innerHTML = 33;
-                  
-           //classDT[9].innerHTML=(document.getElementById("1").value-arrCantElemTipo.push[1])*1
-           let cant=classDT[i-1].value;
+       
+           let cant=classIT[i-1].value;
            let precio=arrUnitCostElem[i-1];
 
-
-
            classTd[i*5-1].innerHTML=cant*precio;
-           console.log(classDT[i-1].value);//classDT[7]*classDT[8]
-           console.log(classTd[i*5]);
-       ///    console.log(classTd[2]..charAt(0));
-          // costArtTotales[i-1];
+           
          if (tipoMoneda[i-1]==="USD"){
            costoSubTotal+=(cant*precio)*40-costArtTotales[i-1]*40;
             costArtTotales[i-1]=cant*precio; 
@@ -166,27 +152,12 @@ document.addEventListener("DOMContentLoaded", function(e){
             document.getElementById("costoSubTot").innerHTML="UYU"+" "+(costoSubTotal);
           }
           let nuevoCostoEnvio=document.getElementById("tipoEnvio");
-          tipoEnvio(nuevoCostoEnvio.value);
-          
-         // }
-
-           
-           
-                 
+          tipoEnvio(nuevoCostoEnvio.value);         
             
           });
             }//fin for
 
 
-
-
 });//FINAL Json
-
-          
-
-  
-
-
-
 
 });//FINAL DOM
