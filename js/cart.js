@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                
 
                <tr><th>`+"SubTotal:"+`</th><td id="costoSubTot">`+"UYU"+" "+costoSubTotal+`</td></tr> 
-               <tr class="text-danger"><th><strong>`+"Total"+`</strong></th><td><p  id="total">`+"UYU"+total+`</p></td></tr> 
+               <tr class="text-danger"><th><strong>`+"Total"+`</strong></th><td><p  id="total">`+"UYU"+" "+total+`</p></td></tr> 
                
     
               `
