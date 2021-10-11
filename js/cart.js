@@ -101,8 +101,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 //SI HAY UN CLICK EN EL SELECT TIPOENVIO
         document.getElementById("tipoEnvio").addEventListener("click",function(){
-          let TipoEnvio=document.getElementById("tipoEnvio").value;
-         
+          let TipoEnvio=document.getElementById("tipoEnvio");
+          tipoEnvio(TipoEnvio.value);
           
         });//FINAL TIPO ENVIO
     
@@ -165,8 +165,8 @@ document.addEventListener("DOMContentLoaded", function(e){
           costArtTotales[i-1]=cant*precio; 
             document.getElementById("costoSubTot").innerHTML="UYU"+" "+(costoSubTotal);
           }
-          let nuevoCostoEnvio=document.getElementById("tipoEnvio").value;
-          tipoEnvio(nuevoCostoEnvio);
+          let nuevoCostoEnvio=document.getElementById("tipoEnvio");
+          tipoEnvio(nuevoCostoEnvio.value);
           
          // }
 
