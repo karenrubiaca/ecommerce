@@ -112,8 +112,10 @@ document.addEventListener("DOMContentLoaded", function(e){
                 let elemCartBuy="";
                 elemCartBuy=cartBuy.msg;
   //vaciar tabla:
-                let Table = document.getElementById("addElemCart");
-                Table.innerHTML = "";
+                let Table1 = document.getElementById("addElemCart");
+                Table1.innerHTML = "";
+                let Table2 = document.getElementById("MetEnv");
+                Table2.innerHTML = "";
                 document.getElementById("vacio").innerHTML=`<h4 style="text-align: center;">Su carrito está vacío</h4>`;
                 document.getElementById("pagar").remove();
                 alert(elemCartBuy);
