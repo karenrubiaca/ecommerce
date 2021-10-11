@@ -33,15 +33,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART).then(function(resultObj){
         if (resultObj.status === "ok"){
             let elemCartAdd="";
-            
             cart=resultObj.data;
             //articles
             for(let indice of cart.articles){
                 let elementCart=indice;
                 cantInputCantProd+=1;
-
                 let TotalArt= elementCart.unitCost * elementCart.count;
-
                 tipoMoneda.push(elementCart.currency);
                 costArtTotales.push(TotalArt);
 
@@ -52,16 +49,12 @@ document.addEventListener("DOMContentLoaded", function(e){
                 total=costoSubTotal+((costoSubTotal*5)/100);
                 
                 elemCartAdd+= `
-               
                 <tr>
                 <td><img src="` + elementCart.src + `" alt=" " class="img-thumbnail" style="width:160px; height:160px"></td>
                 <td><p >`+ elementCart.name +`</p></td>
-               
                 <td>`+elementCart.currency+" "+elementCart.unitCost+" "+ `</td>
                 <td><input class="bg-success"" type="number" min="1" value="${elementCart.count}" size="10" id="${cantInputCantProd}">` +`</td>
                 <td>`+TotalArt+ `</td>                
-                
-               
                 </tr>`
                 arrUnitCostElem.push(elementCart.unitCost);
                 }//FINAL FOR
@@ -71,11 +64,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                <option value="value1" selected>`+"Transferencia Bancaria"+`</option>
                <option value="value2" >`+"Tarjeta de Crédito"+`</option>
              </select></td></tr>
-             
-
             <tr><th>`+"Envío:"+`</th><td><p id="costoEnvio">`+"UYU"+" "+costoEnvio+`</p></td></tr> 
-               
-
                <tr><th>`+"SubTotal:"+`</th><td id="costoSubTot">`+"UYU"+" "+costoSubTotal+`</td></tr> 
                <tr class="text-danger"><th><strong>`+"Total"+`</strong></th><td><p  id="total">`+"UYU"+" "+total+`</p></td></tr> 
                
@@ -125,9 +114,6 @@ document.addEventListener("DOMContentLoaded", function(e){
           else alert("¡Complete todos los datos de envío!")         
           });//FINAL PAGAR
 
-
-
-
           for (let i=1;i<=cantInputCantProd;i++) {
 
            document.getElementById(i).addEventListener("click",function(){
@@ -147,18 +133,16 @@ document.addEventListener("DOMContentLoaded", function(e){
             document.getElementById("costoSubTot").innerHTML="UYU"+" "+(costoSubTotal);
             
           } else {
-           
           costoSubTotal+=(cant*precio)-costArtTotales[i-1];
-         
           costArtTotales[i-1]=cant*precio; 
             document.getElementById("costoSubTot").innerHTML="UYU"+" "+(costoSubTotal);
           }
+
           let nuevoCostoEnvio=document.getElementById("tipoEnvio");
           tipoEnvio(nuevoCostoEnvio.value);         
             
           });
             }//fin for
-
 
 });//FINAL Json
 
