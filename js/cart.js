@@ -70,12 +70,12 @@ document.addEventListener("DOMContentLoaded", function(e){
                
     
               `
-            document.getElementById("MetEnv").innerHTML=  `<th><strong>`+"Método de envío"+`</strong></th>
+            document.getElementById("MetEnv").innerHTML=  `<th class="text-success"><strong >`+"Método de envío"+`</strong></th>
 
-            <tr><th>Dirección:</th><td><input type="text" placeholder="Calle" size="30" id="calle" required></td><td><input type="number" placeholder="Número" id="numero"  size="5" required></td><td><input type="text" placeholder="Esquina" id="esquina" size="30" required></td></tr>
+            <tr><th class="text-success">Dirección:</th><td><input type="text" placeholder="Calle" size="30" id="calle" required></td><td><input type="number" placeholder="Número" id="numero"  size="5" required></td><td><input type="text" placeholder="Esquina" id="esquina" size="30" required></td></tr>
             
-            <tr><th>País:</th><td><input type="text" placeholder="País" id="pais" size="30" required></td></tr>
-            <tr><th>`+"Tipo de Envío"+`</th><td><select name="select" id=tipoEnvio>
+            <tr><th class="text-success">País:</th><td><input type="text" placeholder="País" id="pais" size="30" required></td></tr>
+            <tr><th class="text-success">`+"Tipo de Envío"+`</th><td><select name="select" id=tipoEnvio>>
              <option value="S" selected>`+"Standard"+`</option>
              <option value="E" >`+"Express"+`</option>
              <option value="P" >`+"Premium"+`</option>
