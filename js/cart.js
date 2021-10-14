@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 <td><img src="` + elementCart.src + `" alt=" " class="img-thumbnail" style="width:160px; height:160px"></td>
                 <td><p >`+ elementCart.name +`</p></td>
                 <td>`+elementCart.currency+" "+elementCart.unitCost+" "+ `</td>
-                <td><input class="bg-success"" type="number" min="1" value="${elementCart.count}" size="10" id="${cantInputCantProd}">` +`</td>
+                <td><input class="bg-success w-25" type="number" min="0" value="${elementCart.count}" size="10" id="${cantInputCantProd}">` +`</td>
                 <td>`+TotalArt+ `</td>                
                 </tr>`
                 arrUnitCostElem.push(elementCart.unitCost);
@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           else alert("¡Complete todos los datos de envío!")         
           });//FINAL PAGAR
 
+//CREO LOS EVENTOS CLICK PARA AUMENTAR/DISMINUIR CANTIDAD PRODUCTOS
           for (let i=1;i<=cantInputCantProd;i++) {
 
            document.getElementById(i).addEventListener("click",function(){
