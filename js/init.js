@@ -8,6 +8,11 @@ const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 const CART = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 
+function limpiarUsuario(){
+  localStorage.clear();
+  sessionStorage.clear();
+}
+
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -55,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     <div class="dropdown-menu" aria-labelledby="`+ carge +`">
       <a class="dropdown-item" href="cart.html">`+ "Mi carrito" +`</a>
       <a class="dropdown-item" href="my-profile.html">`+ "Mi perfil" +`</a>
-      <a class="dropdown-item" href="login.html">`+ "Cerrar sesión" +`</a>
+      <a class="dropdown-item" onclick="limpiarUsuario();" href="login.html">`+ "Cerrar sesión" +`</a>
     </div>
   </div>
    `
