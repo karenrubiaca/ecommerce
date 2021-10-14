@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 <td><p >`+ elementCart.name +`</p></td>
                 <td>`+elementCart.currency+" "+elementCart.unitCost+" "+ `</td>
                 <td><input class="bg-success w-25" type="number" min="0" value="${elementCart.count}" size="10" id="${cantInputCantProd}">` +`</td>
-                <td>`+TotalArt+ `</td>               
+                <td>`+elementCart.currency+" "+TotalArt+ `</td>               
                 </tr>`
                 arrUnitCostElem.push(elementCart.unitCost);
                 }//FINAL FOR
