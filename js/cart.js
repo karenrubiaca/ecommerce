@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function(e){
            let cant=classIT[i-1].value;
            let precio=arrUnitCostElem[i-1];
 
-           classTd[i*5-1].innerHTML=cant*precio;
+           classTd[i*5-1].innerHTML=`${tipoMoneda[i-1]}`+" "+`${cant*precio}`;
            
          if (tipoMoneda[i-1]==="USD"){
            costoSubTotal+=(cant*precio)*40-costArtTotales[i-1]*40;
