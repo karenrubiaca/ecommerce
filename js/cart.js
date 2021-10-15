@@ -1,5 +1,4 @@
 var cart = {};
-let ident=0;
 let costoSubTotal=0;
 let total=0;
 let costoEnvio=0;
