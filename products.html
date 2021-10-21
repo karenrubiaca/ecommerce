@@ -12,7 +12,8 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-  </head>
+    
+   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-info text-white ">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
@@ -24,16 +25,15 @@
       </div>
     </nav>
 
-    <div class="container p-5">
-      <div class="alert alert-success" role="alert" style="position: relative; width:auto; top: 0;">
+ 
         
         
         <div class="text-center p-4">
-          <h2>Productos</h2>
+          <h2 style="-webkit-text-stroke: 2px green;">Productos</h2>
           <p class="lead">Verás aquí todos los productos del sitio.</p>
       </div>
 
-      <div class="container">
+      <div class="container" >
 
 
        
@@ -42,13 +42,13 @@
           <div class="row">
               <div class="col text-right">
                   
-                      <label class="btn btn-light active" id="sortProdAsc" >
+                      <label class="btn btn-success active" id="sortProdAsc" >
                           <input type="radio" name="options" autocomplete="off" >Precio Asc.
                       </label>
-                      <label class="btn btn-light" id="sortProdDesc" >
+                      <label class="btn btn-success" id="sortProdDesc" >
                           <input type="radio" name="options" autocomplete="off">Precio Des.
                       </label>
-                      <label class="btn btn-light" id="sortByProdCount" >
+                      <label class="btn btn-success" id="sortByProdCount" >
                           <input type="radio" name="options" autocomplete="off">Relevancia
                       </label>
                     </div>
@@ -69,7 +69,7 @@
                     <div class="col"> 
                     <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMaxProd">
                   </div>
-                  <div class="col-3 p-0">
+                  <div class="col">
                     <div class="btn-group" role="group">
                       <button class="btn btn-link btn-sm" id="rangeFilterCountProd">Filtrar</button>
                       <button class="btn btn-link btn-sm" id="clearRangeFilterProd">Limpiar</button>
@@ -81,25 +81,19 @@
 
 
 
-          <div class="row justify-content-end">
-          <div class="row">
-              <div class="list-group" id="prod-list-container">
-              </div>
-          </div>
-      </div>
-      
-      </div>
-    </div>
-    <footer class="text-muted bg-light">
-      <div class="container">
+          
 
-        <p class="float-right">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-      </div>
-    </footer>
+                <div class="container">
+                  <div class="row" id="prod-list-container">
+                  </div>
+                </div>
+
+          </div>
+      
+      
+     
+    </div>
+  
     <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
