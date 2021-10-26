@@ -50,7 +50,6 @@
     </div>
   </nav>
   
-  
   <div  class="text-center p-4">
     <h1 style="-webkit-text-stroke: 2px green;">Datos del Perfil</h1>
     </div>
@@ -58,20 +57,17 @@
     <hr>
     <div class="container bootstrap snippet font-italic text-success">
         <div class="row">
-          <div class="col-sm-10"><h1>User name</h1></div>
-     
+          <div class="col-sm-10"><h1 id="userName"></h1></div>
         </div>
+        <br>
         <div class="row ">
           <div class="col-sm-3"><!--left col-->
                   
-    
           <div class="text-center">
             <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
             
           </div></hr><br>
     
-              
-              
             </div><!--/col-3-->
           <div class="col-sm-9">
                 <ul class="nav nav-tabs">
@@ -79,118 +75,88 @@
                     <li><a data-toggle="tab" href="#settings">Modificar Datos del Perfil</a></li>
                   </ul>
     
-                  
               <div class="tab-content">
                 <div class="tab-pane active" id="datosPerfil">
                     <hr>      
-                    <table>
+                    <table class="table table-striped text-success ">
                       <tr>
                         <th><div><h4>Nombres:</h4></div></th>
-                        <th><p id="namesPerfil"></p></th>
+                        <th id="namesPerfil"></th>
                       </tr>
                       <tr>
                         <td><div><h4>Apellidos:</h4></div></td>
-                        <td><p id="lastNamesPerfil"></p></td>
+                        <td id="lastNamesPerfil"></td>
                       </tr>
                       <tr>
                         <td><div><h4>Edad:</h4></div></td>
-                        <td><p id="agePerfil">f</p></td>
+                        <td id="agePerfil"></td>
                       </tr>
                       <tr>
                         <td><div><h4>E-mail:</h4></div></td>
-                        <td><p id="emailPerfil">b</p></td>
+                        <td id="emailPerfil"></td>
                       </tr>
                       <tr>
-                        <td><div><h4>Teléfono de contacto: </h4></div></td>
-                        <td id="phonePerfil">asgadga</td>
+                        <td><div><h4>Teléfono de contacto: &nbsp</h4></div></td>
+                        <td id="phonePerfil"></td>
                       </tr>
                     </table>                    
-                         
-                         
-                         
-                         
-                        
-                         
-                       
-                        </div><!--/tab-pane-->
+                           
+                </div><!--/tab-pane-->
                   
-                  
-    
-                 <div class="tab-pane" id="settings">
-                    
-                     
-                      <hr>
-                                             
-                            
+                <div class="tab-pane" id="settings">
+                     <hr>
                             <form class="form" action="##" id="registrationForm">
                                 <div class="form-group">
-                                    
                                     <div class="col-xs-6">
                                         <label for="namesP"><h4>Nombres</h4></label>
                                         <input type="text" class="form-control" name="namesP" id="names" placeholder="Nombres" title="enter your first name if any.">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    
                                     <div class="col-xs-6">
                                       <label for="last_namesP"><h4>Apellidos</h4></label>
                                         <input type="text" class="form-control" name="last_namesP" id="last_names" placeholder="Apellidos" title="enter your last name if any.">
                                     </div>
                                 </div>
-                    
                                 <div class="form-group">
-                                    
                                     <div class="col-xs-6">
                                         <label for="ageP"><h4>Edad</h4></label>
                                         <input type="text" class="form-control" name="ageP" id="phone" placeholder="Escriba Edad" title="enter your phone number if any.">
                                     </div>
                                 </div>
-                    
                                 <div class="form-group">
-                                    
                                     <div class="col-xs-6">
                                         <label for="emailP"><h4>E-mail</h4></label>
-                                        <input type="email" class="form-control" name="emailP" id="email" placeholder="you@email.com" title="enter your email.">
+                                        <input type="email" class="form-control" name="emailP" id="emailP" placeholder="you@email.com" title="enter your email.">
                                     </div>
                                 </div>
-    
                                 <div class="form-group">
-                                    
                                     <div class="col-xs-6">
                                         <label for="phoneP"><h4>Teléfono de contacto</h4></label>
-                                        <input type="text" class="form-control" name="phoneP" id="phone" placeholder="Escriba teléfono" title="enter your email.">
+                                        <input type="text" class="form-control" name="phoneP" id="phoneP" placeholder="Escriba teléfono" title="enter your email.">
                                     </div>
                                 </div>
                                 <br>
-
-                                <div class="form-group">
-                                    
+                                <div class="form-group">  
                                   <div class="col-xs-6">
                                  <br>
                                     <label><h4>Nueva Imágen</h4></label>
-                                <input type="file" class=" file-upload">
+                                <input type="file" class=" file-upload" id="imagePerfil">
                               </div>
                             </div> <br>
 
-                          <div class="form-group">
+                            <div class="form-group">
                                <div class="col-xs-12">
                                    
-                                    <button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                    <button class="btn btn-lg btn-success pull-right" type="submit" onclick="guardarDatos(namesP,last_namesP,ageP,emailP,phoneP,imagePerfil)"><i class="glyphicon glyphicon-ok-sign"></i> Guardar</button>
                                      <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
                                 </div>
-                          </div>
-                  
-                 
-                  
-                  </form>
-                  
-                  
-                  </div><!--/tab-pane-->
+                            </div>
+                          </form>
+                </div><!--/tab-pane-->
              </div><!--/tab-content-->
-           
             </div><!--/col-9-->
-        </div><!--/row-->
-                            
+      </div><!--/row-->                    
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -204,7 +170,5 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
-  
 </body>
-
 </html>

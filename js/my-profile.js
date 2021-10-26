@@ -1,3 +1,9 @@
+if (sessionStorage.getItem("usuario")){
+    let nameUser=sessionStorage.getItem("usuario");
+    document.getElementById("userName").innerHTML=nameUser;
+}
+//La siguiente función cambia en tiempo real la imagen
+//osea, puedo ver como queda en el momento
 $(document).ready(function() {
 
     
@@ -19,8 +25,9 @@ $(document).ready(function() {
     });
 });
 
-function guardarDatos(nombresPerfil,apellidosPerfil,edadPerfil,emailPerfil){
-    localStorage
+function guardarDatos(namesP,last_namesP,ageP,emailP,phoneP,imagePerfil){
+    let userAdd = 
+    localStorage.setItem("usuarioGuardado",userAdd)
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
