@@ -6,6 +6,7 @@ if (sessionStorage.getItem("usuario")){
 //osea, puedo ver como queda en el momento
 
 $(document).ready(function() {
+   
     var readURL = function(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -21,21 +22,28 @@ $(document).ready(function() {
         readURL(this);
     });
 });
-
-function guardarDatos(nombresPerfil,apellidosPerfil,edadPerfil,emailsPerfil,
-    telefonoPerfil,imagenPerfil){
+function addInfoP(event){
+//function guardarDatos(nombresPerfil,apellidosPerfil,edadPerfil,emailsPerfil,
+   // telefonoPerfil,imagenPerfil){
 // CREARLO SI NO existe
+
+    event.preventDefault();
+
+    let nombresPerfil = document.getElementById("namesP").value;
+    let apellidosPerfil = document.getElementById("last_namesP").value;
+    let edadPerfil = document.getElementById("ageP").value;
+    let emailsPerfil = document.getElementById("emailP").value;
+    let telefonoPerfil = document.getElementById("phoneP").value;
+    let imagenPerfil = document.getElementById("imagePerfil").value;
+
     if (!localStorage.getItem("usuarioGuardado"))
-    //((nombresPerfil.trim()!=="")&&(apellidosPerfil.trim()!=="")
-    //&&(edadPerfil.trim()!=="")&&(emailPerfil.trim()!=="")
-   // &&(telefonoPerfil.trim()!=="")&&(imagenPerfil.trim()!==""))
     {
 
      let UserAdd = JSON.stringify({name:nombresPerfil,lastname:apellidosPerfil,
       age:edadPerfil,email:emailsPerfil,phone:telefonoPerfil,image:imagenPerfil})
       localStorage.setItem("usuarioGuardado",UserAdd);
     }//fin if
-    else {//si existe y quiero modificar algo en particular
+   else {//si existe y quiero modificar algo en particular
      let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
 
      if (nombresPerfil!==""){
@@ -62,7 +70,9 @@ function guardarDatos(nombresPerfil,apellidosPerfil,edadPerfil,emailsPerfil,
       UserChange.image.innerHTML=imagenPerfil;
       document.getElementById("imagePerfil").innerHTML=imagenPerfil;
      }
-    }//fin else
+   }//fin else
+    document.getElementById('myform').reset();
+
 } //fin guardar datos
 
 //if no existe ningún dato guardado no hago nada
@@ -77,5 +87,33 @@ function guardarDatos(nombresPerfil,apellidosPerfil,edadPerfil,emailsPerfil,
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
+    myform = document.getElementById('myform');
+    myform.addEventListener("submit", addInfoP);
+
+   if (localStorage.getItem("usuarioGuardado"))
+    {
+
+    let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
+
+      document.getElementById("namesPerfil").innerHTML= UserChange.name;
+    
+   
+     
+        document.getElementById("lastNamesPerfil").innerHTML= UserChange.lastname;
+    
+ 
+      console.log(UserChange.name)
+      document.getElementById("agePerfil").innerHTML=UserChange.age;
+  
+      
+      document.getElementById("emailPerfil").innerHTML=UserChange.email;
+ 
+      document.getElementById("phonePerfil").innerHTML=UserChange.phone;
+ 
+      
+      document.getElementById("imagePerfil").innerHTML=UserChange.image;
+     }
 });
 
+
+   
