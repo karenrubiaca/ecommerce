@@ -57,7 +57,7 @@ function addInfoP(event){
       UserChange.age=edadPerfil;
       document.getElementById("agePerfil").innerHTML=edadPerfil;
      }
-     if (emailPerfil!==""){
+     if (emailsPerfil!==""){
       UserChange.email=emailsPerfil;
       document.getElementById("emailPerfil").innerHTML=emailsPerfil;
      } 
