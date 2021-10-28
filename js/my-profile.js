@@ -43,44 +43,37 @@ function addInfoP(event){
       age:edadPerfil,email:emailsPerfil,phone:telefonoPerfil,image:imagenPerfil})
       localStorage.setItem("usuarioGuardado",UserAdd);
     }//fin if
-   else {//si existe y quiero modificar algo en particular
+ //  else {//si existe y quiero modificar algo en particular
      let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
-
      if (nombresPerfil!==""){
-      UserChange.name.innerHTML=nombresPerfil;
+      UserChange.name=nombresPerfil;
       document.getElementById("namesPerfil").innerHTML=nombresPerfil;
      }
      if (apellidosPerfil!==""){
-      UserChange.lastname.innerHTML=apellidosPerfil;
+      UserChange.lastname=apellidosPerfil;
         document.getElementById("lastNamesPerfil").innerHTML=apellidosPerfil;
      }
      if (edadPerfil!==""){
-      UserChange.age.innerHTML=edadPerfil;
+      UserChange.age=edadPerfil;
       document.getElementById("agePerfil").innerHTML=edadPerfil;
      }
      if (emailPerfil!==""){
-      UserChange.email.innerHTML=emailsPerfil;
+      UserChange.email=emailsPerfil;
       document.getElementById("emailPerfil").innerHTML=emailsPerfil;
      } 
      if (telefonoPerfil!==""){
-      UserChange.phone.innerHTML=telefonoPerfil;
+      UserChange.phone=telefonoPerfil;
       document.getElementById("phonePerfil").innerHTML=telefonoPerfil;
      }
      if (imagenPerfil!==""){
-      UserChange.image.innerHTML=imagenPerfil;
+      UserChange.image=imagenPerfil;
       document.getElementById("imagePerfil").innerHTML=imagenPerfil;
      }
-   }//fin else
+     localStorage.setItem("usuarioGuardado",JSON.stringify(UserChange));
+  // }//fin else
     document.getElementById('myform').reset();
 
 } //fin guardar datos
-
-//if no existe ningún dato guardado no hago nada
-    //cambiar datos              
-                     
-// Recuerda del uso de los métodos JSON.stringify y JSON.parse
-//para poder almacenar y recuperar los datos almacenados respectivamente.
-
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -92,27 +85,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
    if (localStorage.getItem("usuarioGuardado"))
     {
-
-    let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
-
-      document.getElementById("namesPerfil").innerHTML= UserChange.name;
-    
-   
-     
-        document.getElementById("lastNamesPerfil").innerHTML= UserChange.lastname;
-    
- 
-      console.log(UserChange.name)
-      document.getElementById("agePerfil").innerHTML=UserChange.age;
-  
-      
-      document.getElementById("emailPerfil").innerHTML=UserChange.email;
- 
-      document.getElementById("phonePerfil").innerHTML=UserChange.phone;
- 
-      
-      document.getElementById("imagePerfil").innerHTML=UserChange.image;
-     }
+      let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
+      if (UserChange.name) document.getElementById("namesPerfil").innerHTML= UserChange.name;     
+      if (UserChange.lastname) document.getElementById("lastNamesPerfil").innerHTML= UserChange.lastname;
+      if (UserChange.age) document.getElementById("agePerfil").innerHTML=UserChange.age;
+      if (UserChange.email) document.getElementById("emailPerfil").innerHTML=UserChange.email;
+      if (UserChange.phone) document.getElementById("phonePerfil").innerHTML=UserChange.phone;
+      if (UserChange.image) document.getElementById("imagePerfil").innerHTML=UserChange.image;
+      }
 });
 
 

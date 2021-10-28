@@ -9,8 +9,8 @@ const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 const CART = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 
 function limpiarUsuario(){
-  localStorage.clear();
-  sessionStorage.clear();
+  localStorage.clear("usuario");
+  sessionStorage.clear("usuario");
 }
 
 var showSpinner = function(){
