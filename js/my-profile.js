@@ -1,3 +1,5 @@
+"use strict";
+debugger
 if (sessionStorage.getItem("usuario")){
     let nameUser=sessionStorage.getItem("usuario");
     document.getElementById("userName").innerHTML=nameUser;
@@ -38,12 +40,10 @@ function addInfoP(event){
 
     if (!localStorage.getItem("usuarioGuardado"))
     {
-
      let UserAdd = JSON.stringify({name:nombresPerfil,lastname:apellidosPerfil,
       age:edadPerfil,email:emailsPerfil,phone:telefonoPerfil,image:imagenPerfil})
       localStorage.setItem("usuarioGuardado",UserAdd);
     }//fin if
- //  else {//si existe y quiero modificar algo en particular
      let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
      if (nombresPerfil!==""){
       UserChange.name=nombresPerfil;
@@ -70,7 +70,7 @@ function addInfoP(event){
       document.getElementById("imagePerfil").innerHTML=imagenPerfil;
      }
      localStorage.setItem("usuarioGuardado",JSON.stringify(UserChange));
-  // }//fin else
+
     document.getElementById('myform').reset();
 
 } //fin guardar datos
@@ -80,7 +80,7 @@ function addInfoP(event){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
-    myform = document.getElementById('myform');
+   let myform = document.getElementById('myform');
     myform.addEventListener("submit", addInfoP);
 
    if (localStorage.getItem("usuarioGuardado"))
@@ -92,7 +92,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
       if (UserChange.email) document.getElementById("emailPerfil").innerHTML=UserChange.email;
       if (UserChange.phone) document.getElementById("phonePerfil").innerHTML=UserChange.phone;
       if (UserChange.image) document.getElementById("imagePerfil").innerHTML=UserChange.image;
-      }
+      
+    }
 });
 
 
