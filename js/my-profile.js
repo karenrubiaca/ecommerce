@@ -1,5 +1,4 @@
 "use strict";
-debugger
 if (sessionStorage.getItem("usuario")){
     let nameUser=sessionStorage.getItem("usuario");
     document.getElementById("userName").innerHTML=nameUser;
@@ -7,23 +6,7 @@ if (sessionStorage.getItem("usuario")){
 //La siguiente función cambia en tiempo real la imagen
 //osea, puedo ver como queda en el momento
 
-$(document).ready(function() {
-   
-    var readURL = function(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('.avatar').attr('src', e.target.result);
-            }
-    
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $(".file-upload").on('change', function(){
-        readURL(this);
-    });
-});
 function addInfoP(event){
 //function guardarDatos(nombresPerfil,apellidosPerfil,edadPerfil,emailsPerfil,
    // telefonoPerfil,imagenPerfil){
@@ -36,8 +19,6 @@ function addInfoP(event){
     let edadPerfil = document.getElementById("ageP").value;
     let emailsPerfil = document.getElementById("emailP").value;
     let telefonoPerfil = document.getElementById("phoneP").value;
-    let imagenPerfil = document.getElementById("imagePerfil").value;
-
     if (!localStorage.getItem("usuarioGuardado"))
     {
      let UserAdd = JSON.stringify({name:nombresPerfil,lastname:apellidosPerfil,
@@ -64,13 +45,8 @@ function addInfoP(event){
      if (telefonoPerfil!==""){
       UserChange.phone=telefonoPerfil;
       document.getElementById("phonePerfil").innerHTML=telefonoPerfil;
-     }
-     if (imagenPerfil!==""){
-      UserChange.image=imagenPerfil;
-      document.getElementById("imagePerfil").innerHTML=imagenPerfil;
-     }
+     }  
      localStorage.setItem("usuarioGuardado",JSON.stringify(UserChange));
-
     document.getElementById('myform').reset();
 
 } //fin guardar datos
@@ -91,8 +67,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
       if (UserChange.age) document.getElementById("agePerfil").innerHTML=UserChange.age;
       if (UserChange.email) document.getElementById("emailPerfil").innerHTML=UserChange.email;
       if (UserChange.phone) document.getElementById("phonePerfil").innerHTML=UserChange.phone;
-      if (UserChange.image) document.getElementById("imagePerfil").innerHTML=UserChange.image;
-      
     }
 });
 
