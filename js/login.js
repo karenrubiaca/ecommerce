@@ -4,10 +4,9 @@ function respaldoUsuario(correo, clave){
 //ni ser espacios en blanco.
 }    
 else{
-sessionStorage.setItem("usuario", correo.trim());//setItem almacena el dato en la posición "usuario"
+localStorage.setItem("usuario", correo.trim());//setItem almacena el dato en la posición "usuario"
 document.getElementById("txtcorreo").value = "";
 document.getElementById("txtclave").value = "";
-localStorage.setItem("usuario", correo.trim());
 window.location="index.html";
 //getItem obtiene el dato almacenado en la posición "usuario"
 
