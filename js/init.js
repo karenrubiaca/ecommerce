@@ -50,8 +50,8 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-  if (sessionStorage.getItem("usuario")){
-   let carge=sessionStorage.getItem("usuario");
+  if (localStorage.getItem("usuario")){
+   let carge=localStorage.getItem("usuario");
    let cargar=document.getElementById("Usuario");
    cargar.innerHTML+=  `
     <div class="dropdown">

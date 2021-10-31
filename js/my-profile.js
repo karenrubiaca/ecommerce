@@ -7,10 +7,7 @@ if (sessionStorage.getItem("usuario")){
 //osea, puedo ver como queda en el momento
 
 
-function addInfoP(event){
-//function guardarDatos(nombresPerfil,apellidosPerfil,edadPerfil,emailsPerfil,
-   // telefonoPerfil,imagenPerfil){
-// CREARLO SI NO existe
+function addInfoProfile(event){
 
     event.preventDefault();
 
@@ -57,7 +54,7 @@ function addInfoP(event){
 document.addEventListener("DOMContentLoaded", function (e) {
 
    let myform = document.getElementById('myform');
-    myform.addEventListener("submit", addInfoP);
+    myform.addEventListener("submit", addInfoProfile);
 
    if (localStorage.getItem("usuarioGuardado"))
     {
