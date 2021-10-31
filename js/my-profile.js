@@ -1,6 +1,6 @@
 "use strict";
-if (sessionStorage.getItem("usuario")){
-    let nameUser=sessionStorage.getItem("usuario");
+if (localStorage.getItem("usuario")){
+    let nameUser=localStorage.getItem("usuario");
     document.getElementById("userName").innerHTML=nameUser;
 }
 //La siguiente función cambia en tiempo real la imagen
