@@ -22,7 +22,7 @@ function addInfoP(event){
     if (!localStorage.getItem("usuarioGuardado"))
     {
      let UserAdd = JSON.stringify({name:nombresPerfil,lastname:apellidosPerfil,
-      age:edadPerfil,email:emailsPerfil,phone:telefonoPerfil,image:imagenPerfil})
+      age:edadPerfil,email:emailsPerfil,phone:telefonoPerfil})
       localStorage.setItem("usuarioGuardado",UserAdd);
     }//fin if
      let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
