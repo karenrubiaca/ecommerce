@@ -59,10 +59,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 }//FINAL FOR
                 costoEnvio=(costoSubTotal*5)/100;
                elemCartAdd+= `
-               <tr><th>`+"Forma de Pago"+`</th><td><select name="select">
-               <option value="value1" selected>`+"Transferencia Bancaria"+`</option>
-               <option value="value2" >`+"Tarjeta de Crédito"+`</option>
-             </select></td></tr>
+               <tr><td id="addFormPago"></td></tr>
             <tr><th>`+"Envío:"+`</th><td><p id="costoEnvio">`+"UYU"+" "+costoEnvio+`</p></td></tr> 
                <tr><th>`+"SubTotal:"+`</th><td id="costoSubTot">`+"UYU"+" "+costoSubTotal+`</td></tr> 
                <tr class="text-danger"><th><strong>`+"Total"+`</strong></th><td><p  id="total">`+"UYU"+" "+total+`</p></td></tr> 
@@ -79,6 +76,22 @@ document.addEventListener("DOMContentLoaded", function(e){
              <option value="E" >`+"Express"+`</option>
              <option value="P" >`+"Premium"+`</option>
            </select></p></td></tr>`
+              let addFormaDePago = document.getElementById("addFormPago");
+              let formaDePago = document.getElementById("formPago");
+              if (formaDePago.value==="transferenciaBancaria") {
+                addFormaDePago = "";
+                addFormaDePago+=`Forma de pago seleccionada:
+                <input type="text" id="cuentaTransferencia" minlength="14" maxlength="16" required>`
+              }
+              else if (formaDePago.value==="tarjetaCredito") {
+                addFormaDePago = "";
+                addFormaDePago+=//acà deberìa mostrar los valores
+                //en otro lado deberian ir los input
+                `Forma de pago seleccionada: <input type="number" id="numeroTarjeta" minlength="16" maxlength="16" required></input>
+                <input type="date" id="vencimientoTarjeta" value="2021-11-14"
+                min="2021-11-14" max="2025-12-31">`
+              }
+
              document.getElementById("addElemCart").innerHTML+=elemCartAdd;
             
         }//FINAL IF JSON OK
