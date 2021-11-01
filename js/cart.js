@@ -78,22 +78,22 @@ document.addEventListener("DOMContentLoaded", function(e){
            </select></p></td></tr>`
 
 
-              let campRespect = document.getElementById("campoRespectivo");
-              let addFormaDePago = document.getElementById("addFormPago");
-              let formaDePago = document.getElementById("formPago");
-              if (formaDePago.value==="transferenciaBancaria") {
-                campRespect = "";
-                campRespect+=`Forma de pago seleccionada:
-                <input type="text" id="cuentaTransferencia" minlength="14" maxlength="16" required>`
-              }
-              else if (formaDePago.value==="tarjetaCredito") {
-                campRespect = "";
-                campRespect+=//acà deberìa mostrar los valores
-                //en otro lado deberian ir los input
-                `Forma de pago seleccionada: <input type="number" id="numeroTarjeta" minlength="16" maxlength="16" required></input>
-                <input type="date" id="vencimientoTarjeta" value="2021-11-14"
-                min="2021-11-14" max="2025-12-31">`
-              }
+              // let campRespect = document.getElementById("campoRespectivo");
+              // let addFormaDePago = document.getElementById("addFormPago");
+              // let formaDePago = document.getElementById("formPago");
+              // if (formaDePago.value==="transferenciaBancaria") {
+              //   campRespect = "";
+              //   campRespect+=`Forma de pago seleccionada:
+              //   <input type="text" id="cuentaTransferencia" minlength="14" maxlength="16" required>`
+              // }
+              // else if (formaDePago.value==="tarjetaCredito") {
+              //   campRespect = "";
+              //   campRespect+=//acà deberìa mostrar los valores
+              //   //en otro lado deberian ir los input
+              //   `Forma de pago seleccionada: <input type="number" id="numeroTarjeta" minlength="16" maxlength="16" required></input>
+              //   <input type="date" id="vencimientoTarjeta" value="2021-11-14"
+              //   min="2021-11-14" max="2025-12-31">`
+              // }
 
 
 
@@ -102,18 +102,31 @@ document.addEventListener("DOMContentLoaded", function(e){
         }//FINAL IF JSON OK
 
 
-//SI HAY UN CLICK EN EL SELECT TIPOENVIO
+//SI HAY UN CLICK EN EL SELECT FORMA PAGO
         document.getElementById("formPago").addEventListener("click",function(){
-           let TipoEnvio=document.getElementById("tipoEnvio");
-           tipoEnvio(TipoEnvio.value);
+           let TipoEnvio=document.getElementById("formPago");
+           let campRespect = document.getElementById("campoRespectivo");
+           let addFormaDePago = document.getElementById("addFormPago");
+           let formaDePago = document.getElementById("formPago");
+           if (formaDePago.value==="transferenciaBancaria") {
+             campRespect = "";
+             campRespect+=`<input type="text" id="cuentaTransferencia" minlength="14" maxlength="16" required>`
+           }
+           else if (formaDePago.value==="tarjetaCredito") {
+             campRespect = "";
+             campRespect+=`<input type="number" id="numeroTarjeta" minlength="16" maxlength="16" required></input>
+             <input type="date" id="vencimientoTarjeta" value="2021-11-14"
+             min="2021-11-14" max="2025-12-31">`
+           }
+           
           });//FINAL FORMA DE PAGO
-
+//INICIO SELECCIONAR TIPO ENVIO
         document.getElementById("tipoEnvio").addEventListener("click",function(){
           let TipoEnvio=document.getElementById("tipoEnvio");
           tipoEnvio(TipoEnvio.value);
           
         });//FINAL TIPO ENVIO
-    
+ //INICIO PAGAR
         document.getElementById("pagar").addEventListener("click",function(){
           if(document.getElementById("formPago").value&&document.getElementById("calle").value&&document.getElementById("numero").value&&document.getElementById("esquina").value
             &&document.getElementById("pais").value){
@@ -139,7 +152,8 @@ document.addEventListener("DOMContentLoaded", function(e){
           else if (!document.getElementById("formPago").value){
             alert("¡Complete la Forma de Pago!");}
           else alert("¡Complete todos los datos de envío!");       
-          });//FINAL PAGAR
+          });
+          //FINAL PAGAR
 
 //CREO LOS EVENTOS CLICK PARA AUMENTAR/DISMINUIR CANTIDAD PRODUCTOS
           for (let i=1;i<=cantInputCantProd;i++) {
