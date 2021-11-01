@@ -64,7 +64,7 @@
 
       <!-- FORMA DE PAGO UTILIZANDO MODAL-->
   
-  <div class="container"><p class="text-success">Forma de Pago
+  <div class="container" id="FP"><p class="text-success">Forma de Pago
     <!-- Button to Open the Modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
       Elegir
@@ -80,13 +80,13 @@
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <select name="select" id="formPago">
-              <option value="transferenciaBancaria" selected>Transferencia Bancaria</option>
+            <select name="select" id="formPago" required>
+              <option value="">Seleccionar</option>
+              <option value="transferenciaBancaria">Transferencia Bancaria</option>
               <option value="tarjetaCredito" >Tarjeta de Crédito</option>
             </select>
           </div>
-          <div>  <input type="text" id="cuenta" placeholder="Ingrese tarjeta/cuenta" minlength="14" maxlength="16" required>`
-          </div>
+          <div id="campoRespectivo"></div>
           <!-- Modal footer -->
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Guardar</button>

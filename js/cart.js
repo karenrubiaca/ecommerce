@@ -76,21 +76,26 @@ document.addEventListener("DOMContentLoaded", function(e){
              <option value="E" >`+"Express"+`</option>
              <option value="P" >`+"Premium"+`</option>
            </select></p></td></tr>`
+
+
+              let campRespect = document.getElementById("campoRespectivo");
               let addFormaDePago = document.getElementById("addFormPago");
               let formaDePago = document.getElementById("formPago");
               if (formaDePago.value==="transferenciaBancaria") {
-                addFormaDePago = "";
-                addFormaDePago+=`Forma de pago seleccionada:
+                campRespect = "";
+                campRespect+=`Forma de pago seleccionada:
                 <input type="text" id="cuentaTransferencia" minlength="14" maxlength="16" required>`
               }
               else if (formaDePago.value==="tarjetaCredito") {
-                addFormaDePago = "";
-                addFormaDePago+=//acà deberìa mostrar los valores
+                campRespect = "";
+                campRespect+=//acà deberìa mostrar los valores
                 //en otro lado deberian ir los input
                 `Forma de pago seleccionada: <input type="number" id="numeroTarjeta" minlength="16" maxlength="16" required></input>
                 <input type="date" id="vencimientoTarjeta" value="2021-11-14"
                 min="2021-11-14" max="2025-12-31">`
               }
+
+
 
              document.getElementById("addElemCart").innerHTML+=elemCartAdd;
             
@@ -98,6 +103,11 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
 //SI HAY UN CLICK EN EL SELECT TIPOENVIO
+        document.getElementById("formPago").addEventListener("click",function(){
+           let TipoEnvio=document.getElementById("tipoEnvio");
+           tipoEnvio(TipoEnvio.value);
+          });//FINAL FORMA DE PAGO
+
         document.getElementById("tipoEnvio").addEventListener("click",function(){
           let TipoEnvio=document.getElementById("tipoEnvio");
           tipoEnvio(TipoEnvio.value);
@@ -105,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         });//FINAL TIPO ENVIO
     
         document.getElementById("pagar").addEventListener("click",function(){
-          if(document.getElementById("calle").value&&document.getElementById("numero").value&&document.getElementById("esquina").value
+          if(document.getElementById("formPago").value&&document.getElementById("calle").value&&document.getElementById("numero").value&&document.getElementById("esquina").value
             &&document.getElementById("pais").value){
           getJSONData(CART_BUY_URL).then(function(resultObj){
             if (resultObj.status === "ok"){
@@ -119,11 +129,16 @@ document.addEventListener("DOMContentLoaded", function(e){
                 Table2.innerHTML = "";
                 document.getElementById("vacio").innerHTML=`<h4 style="text-align: center;">Su carrito está vacío</h4>`;
                 document.getElementById("pagar").remove();
+                document.getElementById("FP").remove();
+
+                
                 alert(elemCartBuy);
             }//FINAL IF
           })//FINAL GETJSON
           } //FINAL IF
-          else alert("¡Complete todos los datos de envío!")         
+          else if (!document.getElementById("formPago").value){
+            alert("¡Complete la Forma de Pago!");}
+          else alert("¡Complete todos los datos de envío!");       
           });//FINAL PAGAR
 
 //CREO LOS EVENTOS CLICK PARA AUMENTAR/DISMINUIR CANTIDAD PRODUCTOS
