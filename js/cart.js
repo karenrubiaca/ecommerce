@@ -104,15 +104,25 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 //SI HAY UN CLICK EN EL SELECT FORMA PAGO
         document.getElementById("formPago").addEventListener("click",function(){
-           let TipoEnvio=document.getElementById("formPago");
+          // let TipoEnvio=document.getElementById("formPago");
            let campRespect = document.getElementById("campoRespectivo");
-           let addFormaDePago = document.getElementById("addFormPago");
-           let formaDePago = document.getElementById("formPago");
-           if (formaDePago.value==="transferenciaBancaria") {
-             campRespect = "";
-             campRespect+=`<input type="text" id="cuentaTransferencia" minlength="14" maxlength="16" required>`
+           //let addFormaDePago = document.getElementById("addFormPago");
+           let formaDePago = document.getElementById("formPago").value;
+           if (formaDePago==="transferenciaBancaria") {
+             campRespect.innerHTML= "";
+             campRespect.innerHTML+=`<input type="text" id="cuentaTransferencia" placeholder="Inserte número cuenta" minlength="14" maxlength="16" required>`
            }
-           else if (formaDePago.value==="tarjetaCredito") {
+           else if (formaDePago==="tarjetaCredito") {
+            campRespect.innerHTML= "";
+            campRespect.innerHTML+=`<input type="text" id="cuentaTransferencia" placeholder="Inserte número tarjeta" minlength="14" maxlength="16" required>
+            <p>"` +"Vencimiento:"+'"</p><input type="date" id="start" name="trip-start" value="2021-11-8" min="2021-12-31"
+             max="2026-12-31">`
+          
+
+
+
+
+
              campRespect = "";
              campRespect+=`<input type="number" id="numeroTarjeta" minlength="16" maxlength="16" required></input>
              <input type="date" id="vencimientoTarjeta" value="2021-11-14"
