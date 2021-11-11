@@ -165,13 +165,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             }//FINAL IF
           })//FINAL GETJSON
           } //FINAL IF
+          
+          else if ((!(visaExpresionRegular.test(document.getElementById("cuentaTransferencia").value)))
+          &&(!(masterExpresionRegular.test(document.getElementById("cuentaTransferencia").value))))
+          alert("¡Tarjeta ingresada incorrectamente!");
           else if (!document.getElementById("formPago").value){
             alert("¡Complete la Forma de Pago!");
-          }
-          else if ((!visaExpresionRegular.test(document.getElementById("cuentaTransferencia").value))
-          &&(!masterExpresionRegular.test(document.getElementById("cuentaTransferencia").value)))
-          alert("¡Tarjeta ingresada incorrectamente!");
-          else alert("¡Complete todos los datos de envío!");       
+          }else alert("¡Complete todos los datos de envío!");       
           });
           //FINAL PAGAR
 
