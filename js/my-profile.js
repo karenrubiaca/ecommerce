@@ -18,29 +18,29 @@ function addInfoProfile(event){
     let telefonoPerfil = document.getElementById("phoneP").value;
     if (!localStorage.getItem("usuarioGuardado"))
     {
-     let UserAdd = JSON.stringify({name:nombresPerfil,lastname:apellidosPerfil,
+     let userAdd = JSON.stringify({name:nombresPerfil,lastname:apellidosPerfil,
       age:edadPerfil,email:emailsPerfil,phone:telefonoPerfil})
-      localStorage.setItem("usuarioGuardado",UserAdd);
+      localStorage.setItem("usuarioGuardado",userAdd);
     }//fin if
-     let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
+     let userChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
      if (nombresPerfil!==""){
-      UserChange.name=nombresPerfil;
+      userChange.name=nombresPerfil;
       document.getElementById("namesPerfil").innerHTML=nombresPerfil;
      }
      if (apellidosPerfil!==""){
-      UserChange.lastname=apellidosPerfil;
+      userChange.lastname=apellidosPerfil;
         document.getElementById("lastNamesPerfil").innerHTML=apellidosPerfil;
      }
      if (edadPerfil!==""){
-      UserChange.age=edadPerfil;
+      userChange.age=edadPerfil;
       document.getElementById("agePerfil").innerHTML=edadPerfil;
      }
      if (emailsPerfil!==""){
-      UserChange.email=emailsPerfil;
+      userChange.email=emailsPerfil;
       document.getElementById("emailPerfil").innerHTML=emailsPerfil;
      } 
      if (telefonoPerfil!==""){
-      UserChange.phone=telefonoPerfil;
+      userChange.phone=telefonoPerfil;
       document.getElementById("phonePerfil").innerHTML=telefonoPerfil;
      }  
      localStorage.setItem("usuarioGuardado",JSON.stringify(UserChange));
@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
    if (localStorage.getItem("usuarioGuardado"))
     {
-      let UserChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
-      if (UserChange.name) document.getElementById("namesPerfil").innerHTML= UserChange.name;     
-      if (UserChange.lastname) document.getElementById("lastNamesPerfil").innerHTML= UserChange.lastname;
-      if (UserChange.age) document.getElementById("agePerfil").innerHTML=UserChange.age;
-      if (UserChange.email) document.getElementById("emailPerfil").innerHTML=UserChange.email;
-      if (UserChange.phone) document.getElementById("phonePerfil").innerHTML=UserChange.phone;
+      let userChange=JSON.parse(localStorage.getItem("usuarioGuardado"));
+      if (userChange.name) document.getElementById("namesPerfil").innerHTML= userChange.name;     
+      if (userChange.lastname) document.getElementById("lastNamesPerfil").innerHTML= userChange.lastname;
+      if (userChange.age) document.getElementById("agePerfil").innerHTML=userChange.age;
+      if (userChange.email) document.getElementById("emailPerfil").innerHTML=userChange.email;
+      if (userChange.phone) document.getElementById("phonePerfil").innerHTML=userChange.phone;
     }
 });
 

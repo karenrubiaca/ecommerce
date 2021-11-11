@@ -6,6 +6,8 @@ let cantInputCantProd=0;
 let arrUnitCostElem=[];
 let costArtTotales=[];
 let tipoMoneda=[];
+let visaExpresionRegular=/^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+let masterExpresionRegular=/(?:5[1-5][0-9]{14})$/;
 
 function tipoEnvio(TipoEnvio){
   if (TipoEnvio==="S"){
@@ -110,17 +112,20 @@ document.addEventListener("DOMContentLoaded", function(e){
            let formaDePago = document.getElementById("formPago").value;
            if (formaDePago==="transferenciaBancaria") {
              campRespect.innerHTML= "";
-             campRespect.innerHTML+=`<input type="text" id="cuentaTransferencia" placeholder="Inserte número cuenta" minlength="14" maxlength="16" required>`
+             campRespect.innerHTML+=`<input type="number" id="cuentaTransferencia" placeholder="Inserte número cuenta" minlength="16" maxlength="16" required>`
            }
            else if (formaDePago==="tarjetaCredito") {
             campRespect.innerHTML= "";
-            campRespect.innerHTML+=`<input type="text" id="cuentaTransferencia" placeholder="Inserte número tarjeta" minlength="14" maxlength="16" required>
-            <p>"` +"Vencimiento:"+'"</p><input type="date" id="start" name="trip-start" value="2021-11-8" min="2021-12-31"
-             max="2026-12-31">`
+            campRespect.innerHTML+=`<input type="number" id="cuentaTransferencia" placeholder="Inserte número tarjeta" minlength="16" maxlength="16" required>
+            <p>"` +"Vencimiento:"+`"</p><input type="date" id="start" name="trip-start" value="2021-11-8" min="2021-12-31"
+             max="2026-12-31" required>`
           
 
 
 
+
+//visaExpresionRegular.test(numTarjeta.value)
+//if (!visaExpresionRegular.test(numTarjeta.value))
 
 
              campRespect = "";
@@ -138,8 +143,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         });//FINAL TIPO ENVIO
  //INICIO PAGAR
         document.getElementById("pagar").addEventListener("click",function(){
-          if(document.getElementById("formPago").value&&document.getElementById("calle").value&&document.getElementById("numero").value&&document.getElementById("esquina").value
-            &&document.getElementById("pais").value){
+          if (document.getElementById("formPago").value&&document.getElementById("calle").value&&document.getElementById("numero").value&&document.getElementById("esquina").value
+            &&document.getElementById("pais").value&&((!visaExpresionRegular.test(document.getElementById("formPago").value))
+            ||(!masterExpresionRegular.test(document.getElementById("formPago").value)))) {
           getJSONData(CART_BUY_URL).then(function(resultObj){
             if (resultObj.status === "ok"){
                 cartBuy=resultObj.data;
@@ -160,7 +166,11 @@ document.addEventListener("DOMContentLoaded", function(e){
           })//FINAL GETJSON
           } //FINAL IF
           else if (!document.getElementById("formPago").value){
-            alert("¡Complete la Forma de Pago!");}
+            alert("¡Complete la Forma de Pago!");
+          }
+          else if ((!visaExpresionRegular.test(document.getElementById("cuentaTransferencia").value))
+          &&(!masterExpresionRegular.test(document.getElementById("cuentaTransferencia").value)))
+          alert("¡Tarjeta ingresada incorrectamente!");
           else alert("¡Complete todos los datos de envío!");       
           });
           //FINAL PAGAR
