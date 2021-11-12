@@ -6,8 +6,9 @@ let cantInputCantProd=0;
 let arrUnitCostElem=[];
 let costArtTotales=[];
 let tipoMoneda=[];
-let visaExpresionRegular=/^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-let masterExpresionRegular=/(?:5[1-5][0-9]{14})$/;
+let tarjetaExpresionRegular=/^[0-9]{15,16}$/
+//let visaExpresionRegular=/^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+//let masterExpresionRegular=/(?:5[1-5][0-9]{14})$/;
 
 function tipoEnvio(TipoEnvio){
   if (TipoEnvio==="S"){
@@ -27,6 +28,7 @@ function tipoEnvio(TipoEnvio){
     document.getElementById("costoEnvio").innerHTML="UYU"+" "+((costoSubTotal*15)/100);
   }
 }
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -124,14 +126,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
 
-//visaExpresionRegular.test(numTarjeta.value)
-//if (!visaExpresionRegular.test(numTarjeta.value))
 
-
+/*
              campRespect = "";
              campRespect+=`<input type="number" id="numeroTarjeta" minlength="16" maxlength="16" required></input>
              <input type="date" id="vencimientoTarjeta" value="2021-11-14"
-             min="2021-11-14" max="2025-12-31">`
+             min="2021-11-14" max="2025-12-31">`*/
            }
            
           });//FINAL FORMA DE PAGO
@@ -144,8 +144,7 @@ document.addEventListener("DOMContentLoaded", function(e){
  //INICIO PAGAR
         document.getElementById("pagar").addEventListener("click",function(){
           if (document.getElementById("formPago").value&&document.getElementById("calle").value&&document.getElementById("numero").value&&document.getElementById("esquina").value
-            &&document.getElementById("pais").value&&((!visaExpresionRegular.test(document.getElementById("formPago").value))
-            ||(!masterExpresionRegular.test(document.getElementById("formPago").value)))) {
+            &&document.getElementById("pais").value) {
           getJSONData(CART_BUY_URL).then(function(resultObj){
             if (resultObj.status === "ok"){
                 cartBuy=resultObj.data;
@@ -166,12 +165,34 @@ document.addEventListener("DOMContentLoaded", function(e){
           })//FINAL GETJSON
           } //FINAL IF
           
-          else if ((!(visaExpresionRegular.test(document.getElementById("cuentaTransferencia").value)))
+          else {
+            if (!document.getElementById("formPago").value){
+              alert("¡No seleccionó Forma de Pago!");
+             }
+            else if (!document.getElementById("calle").value){
+              alert("¡No completó la Calle de la Dirección!");
+            } else if (!document.getElementById("numero").value){
+              alert("¡No completó el número de la Dirección!");
+            }else if (!document.getElementById("esquina").value){
+              alert("¡No completó la Esquina de la Direccióno!");
+            }else if (!document.getElementById("pais").value){
+              alert("¡No completó el País de la Dirección!");
+            }//AGREGAR VALIDACIONES EXP REGULARES DE FORMA DE PAGO
+            //&&((!visaExpresionRegular.test(document.getElementById("formPago").value))
+          // ||(!masterExpresionRegular.test(document.getElementById("formPago").value))))
+        /*  if (document.getElementById("formPago").value){
+            if (!document.getElementById("formPago").value)
+            alert("¡No seleccionó Forma de Pago!");
+           }*/
+
+         }
+          
+         /* if ((!(visaExpresionRegular.test(document.getElementById("cuentaTransferencia").value)))
           &&(!(masterExpresionRegular.test(document.getElementById("cuentaTransferencia").value))))
           alert("¡Tarjeta ingresada incorrectamente!");
           else if (!document.getElementById("formPago").value){
             alert("¡Complete la Forma de Pago!");
-          }else alert("¡Complete todos los datos de envío!");       
+          }else alert("¡Complete todos los datos de envío!");  */     
           });
           //FINAL PAGAR
 
@@ -209,3 +230,23 @@ document.addEventListener("DOMContentLoaded", function(e){
 });//FINAL Json
 
 });//FINAL DOM
+
+/*
+
+let formaDePago = document.getElementById("formPago").value;
+if (formaDePago==="transferenciaBancaria") {
+   id="cuentaTransferencia" 
+  }
+else if (formaDePago==="tarjetaCredito") {
+
+  id="cuentaTransferencia" 
+   id="start" 
+
+
+
+
+tarjetaExpresionRegular.test(numTarjeta.value);
+if (!tarjetaExpresionRegular.test(numTarjeta.value))
+
+tarjetaExpresionRegular.test(numTarjeta.value);
+if (!tarjetaExpresionRegular.test(numTarjeta.value))*/
