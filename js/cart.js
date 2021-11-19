@@ -6,7 +6,7 @@ let cantInputCantProd=0;
 let arrUnitCostElem=[];
 let costArtTotales=[];
 let tipoMoneda=[];
-let tarjetaExpresionRegular=/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/;
+//let tarjetaExpresionRegular=/^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/;
 
 function tipoEnvio(TipoEnvio){
   if (TipoEnvio==="S"){
@@ -55,8 +55,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                 <td><p >`+ elementCart.name +`</p></td>
                 <td>`+elementCart.currency+" "+elementCart.unitCost+" "+ `</td>
                 <td><input class="bg-success w-25" type="number" min="0" value="${elementCart.count}" size="10" id="${cantInputCantProd}">` +`</td>
-                <td>`+elementCart.currency+" "+TotalArt+ `</td>               
-                </tr>`
+                <td>`+elementCart.currency+" "+TotalArt+ `</td>
+                </tr>` //ANTES DE CERRAR ESTO     <td><button  type="button" class="btn btn-outline-success"><i class="bi bi-trash"></i></button></td>               
+
                 arrUnitCostElem.push(elementCart.unitCost);
                 }//FINAL FOR
                 costoEnvio=(costoSubTotal*5)/100;
@@ -84,12 +85,12 @@ document.addEventListener("DOMContentLoaded", function(e){
            let formaDePago = document.getElementById("formPago").value;
            if (formaDePago==="transferenciaBancaria") {
              campRespect.innerHTML= "";
-             campRespect.innerHTML+=`<input type="number" id="cuentaTransferencia" placeholder="Inserte número cuenta" minlength="16" maxlength="16" required>`
+             campRespect.innerHTML+=`<input type="text" id="cuentaTransferencia" placeholder="Inserte número cuenta" minlength="16" maxlength="16" required>`
            }
            else if (formaDePago==="tarjetaCredito") {
             campRespect.innerHTML= "";
-            campRespect.innerHTML+=`<input type="number" id="cuentaTransferencia" placeholder="Inserte número tarjeta" minlength="16" maxlength="16" required>
-            <p>"` +"Vencimiento:"+`"</p><input type="date" id="start" name="trip-start" value="2021-11-8" min="2021-12-31"
+            campRespect.innerHTML+=`<input type="text" id="cuentaTransferencia" placeholder="Inserte número tarjeta" minlength="16" maxlength="16" required>
+            <p>` +"Vencimiento:"+`</p><input type="date" id="start" name="trip-start" value="2021-11-8" min="2021-12-31"
              max="2026-12-31" required>`
           
            }
@@ -108,20 +109,27 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             if (document.getElementById("formPago").value==="transferenciaBancaria") {
                
-              if(!tarjetaExpresionRegular.test(document.getElementById("cuentaTransferencia"))){
-                alert("Numero cuenta inválido. El número de cuenta debe empezar en 4 y contener 16 dígitos");
+             // if(!tarjetaExpresionRegular.test(document.getElementById("cuentaTransferencia"))){
+               if (!document.getElementById("cuentaTransferencia").value){
+                alert("Debe completar número de cuenta");
                 document.getElementById("formPago").value="";
                 document.getElementById("cuentaTransferencia").value="";}
             }
             else if (document.getElementById("formPago").value==="tarjetaCredito") {
-                    if(!tarjetaExpresionRegular.test(document.getElementById("cuentaTransferencia"))){
-                      alert("Numero cuenta inválido. El número de cuenta debe empezar en 4 y contener 16 dígitos");
+                   // if(!tarjetaExpresionRegular.test(document.getElementById("cuentaTransferencia"))){
+                    if (!document.getElementById("cuentaTransferencia").value){
+                      alert("Debe completar número de cuenta");
                       document.getElementById("cuentaTransferencia").value="";
                       document.getElementById("formPago").value="";
                     }
-                    if(!document.getElementById("start")) {
+                    if(!document.getElementById("start").value) {
                       alert("Seleccione fecha vencimiento de la tarjeta");
-              }    
+                      document.getElementById("formPago").value="";
+                    }
+                    else if(document.getElementById("start").value<"2021-12-31"||document.getElementById("start").value>"2026-12-31"){
+                      alert("Fecha vencimiento de la tarjeta inválido");
+                      document.getElementById("formPago").value="";
+                    }    
             }
           }else {
               alert("¡No seleccionó Forma de Pago!");
