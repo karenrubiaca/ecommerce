@@ -1,1 +1,1 @@
-# ecommerce-Rubiaca
+# ecommerce-Entrega6-proyectoJaP
